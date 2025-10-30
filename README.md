@@ -1,36 +1,92 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# UIForge Website
 
-## Getting Started
+Premium frontend development services website built with Next.js 16, React 19, and Tailwind CSS 4.
 
-First, run the development server:
+## 🎨 Design System
+
+UIForge features a comprehensive design system with:
+
+### Brand Colors
+- **Primary**: `#FF7E29` (Molten Orange Neon)
+- **Accent**: `#FFB347` (Gradient Light)
+- **Backgrounds**: `#0E0E0E` (Deep Black) & `#1C1C1C` (Charcoal)
+
+### Typography
+- **Primary Font**: Space Grotesk (300, 400, 500, 600, 700)
+- **Monospace**: Geist Mono
+
+### Components
+- Responsive typography classes (`.heading-xl`, `.heading-lg`, etc.)
+- Button variants (`.btn-primary`, `.btn-secondary`, `.btn-ghost`)
+- Card components (`.card`, `.card-highlight`)
+- Gradient utilities (`.gradient-text`, `.gradient-primary`, `.gradient-border`)
+- Visual effects (`.glow-primary`, `.animate-pulse-glow`)
+
+See [DESIGN_SYSTEM.md](./DESIGN_SYSTEM.md) for complete documentation.
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js 18+ 
+- npm, yarn, pnpm, or bun
+
+### Installation
+
+```bash
+npm install
+```
+
+### Development
+
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the site.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### View Component Demo
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Navigate to [http://localhost:3000/components](http://localhost:3000/components) to see all design system components in action.
 
-## Learn More
+## 📁 Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+uiforge-website/
+├── app/
+│   ├── components/      # Component showcase page
+│   ├── globals.css      # Design system & global styles
+│   ├── layout.tsx       # Root layout with fonts
+│   └── page.tsx         # Homepage
+├── public/              # Static assets
+├── DESIGN_SYSTEM.md     # Complete design system docs
+└── README.md
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🛠️ Tech Stack
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Framework**: Next.js 16 (App Router)
+- **UI Library**: React 19
+- **Styling**: Tailwind CSS 4
+- **Typography**: Google Fonts (Space Grotesk, Geist Mono)
+- **Language**: TypeScript
 
-## Deploy on Vercel
+## 📝 Available Scripts
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run start` - Start production server
+- `npm run lint` - Run ESLint
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🎯 Service Tiers
+
+UIForge offers tiered frontend development services:
+
+1. **Complete Websites** - Full-service website development
+2. **Custom Web Applications** - Interactive web apps
+3. **Premium Packages** - Comprehensive development solutions
+
+## 📄 License
+
+© 2024 UIForge. All rights reserved.
