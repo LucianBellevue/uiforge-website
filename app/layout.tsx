@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Header } from "./components/Header";
+import { Footer } from "./components/Footer";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -35,7 +37,11 @@ export default function RootLayout({
       <body
         className={`${spaceGrotesk.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <Header />
+        <main style={{ paddingTop: "80px" }}>
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   );

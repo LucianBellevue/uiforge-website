@@ -1,65 +1,199 @@
-import Image from "next/image";
+import Link from "next/link";
+import { ForgeBackground, ScrollReveal, NeumorphicCard, StaggerContainer, StaggerItem, ScrollProgress, ParallaxText, ScrollFade } from "@/app/components/ui";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div>
+      <ScrollProgress />
+      
+      {/* Hero Section */}
+      <section className="section-padding" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden' }}>
+        <ForgeBackground />
+        <div className="container-custom" style={{ position: 'relative', zIndex: 1 }}>
+          <div style={{ textAlign: 'center', maxWidth: '900px', margin: '0 auto' }}>
+            <ScrollReveal direction="scale">
+              <h1 className="heading-xl gradient-text animate-shimmer" style={{ textShadow: '0 0 40px rgba(255, 126, 41, 0.8), 0 0 80px rgba(255, 126, 41, 0.4), 0 0 120px rgba(255, 126, 41, 0.2)' }}>
+                Forge Your Digital Future
+              </h1>
+            </ScrollReveal>
+            <ScrollReveal direction="up" delay={0.2}>
+              <p className="body-lg" style={{ color: 'var(--foreground-muted)', marginTop: '2rem', maxWidth: '700px', margin: '2rem auto 0' }}>
+                Transform your vision into stunning web experiences with premium frontend development services tailored to your needs.
+              </p>
+            </ScrollReveal>
+            <ScrollReveal direction="up" delay={0.4}>
+              <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', marginTop: '3rem', flexWrap: 'wrap' }}>
+                <Link href="/services" className="btn btn-primary btn-lg hover-lift hover-glow-intense">
+                  Explore Services
+                </Link>
+                <Link href="/work" className="btn btn-secondary btn-lg hover-lift">
+                  View Our Work
+                </Link>
+              </div>
+            </ScrollReveal>
+            <ScrollFade>
+              <div style={{ marginTop: '4rem', display: 'flex', justifyContent: 'center', gap: '3rem', flexWrap: 'wrap' }}>
+                <div style={{ textAlign: 'center' }}>
+                  <div className="heading-lg gradient-text">50+</div>
+                  <div className="body-sm" style={{ color: 'var(--foreground-muted)' }}>Projects</div>
+                </div>
+                <div style={{ textAlign: 'center' }}>
+                  <div className="heading-lg gradient-text">100%</div>
+                  <div className="body-sm" style={{ color: 'var(--foreground-muted)' }}>Satisfaction</div>
+                </div>
+                <div style={{ textAlign: 'center' }}>
+                  <div className="heading-lg gradient-text">5+</div>
+                  <div className="body-sm" style={{ color: 'var(--foreground-muted)' }}>Years</div>
+                </div>
+              </div>
+            </ScrollFade>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* Services Preview */}
+      <section className="section-padding" style={{ background: 'var(--background-charcoal)', position: 'relative', overflow: 'hidden' }}>
+        <ForgeBackground />
+        <div className="container-custom" style={{ position: 'relative', zIndex: 1 }}>
+          <ParallaxText speed={0.5}>
+            <h2 className="heading-lg text-center animate-shimmer" style={{ marginBottom: '1rem', textShadow: '0 0 20px rgba(255, 126, 41, 0.5)' }}>What We Forge</h2>
+          </ParallaxText>
+          <ScrollReveal direction="up" delay={0.1}>
+            <p className="body-lg text-center" style={{ color: 'var(--foreground-muted)', marginBottom: '4rem', maxWidth: '600px', margin: '1rem auto 4rem' }}>
+              From complete websites to complex web applications, we craft digital experiences that stand out.
+            </p>
+          </ScrollReveal>
+          
+          <StaggerContainer staggerDelay={0.15}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+              <StaggerItem>
+                <NeumorphicCard variant="raised" className="hover-lift">
+                  <h3 className="heading-sm gradient-text" style={{ marginBottom: '1rem' }}>Custom Websites</h3>
+                  <p className="body-md" style={{ color: 'var(--foreground-muted)', marginBottom: '1.5rem' }}>
+                    Beautifully designed, fully responsive websites that capture your brand essence and engage your audience.
+                  </p>
+                  <Link href="/services#websites" className="btn btn-ghost hover-lift">
+                    Learn More →
+                  </Link>
+                </NeumorphicCard>
+              </StaggerItem>
+              
+              <StaggerItem>
+                <NeumorphicCard variant="embossed" className="hover-glow-intense">
+                  <h3 className="heading-sm gradient-text" style={{ marginBottom: '1rem' }}>Web Applications</h3>
+                  <p className="body-md" style={{ color: 'var(--foreground-muted)', marginBottom: '1.5rem' }}>
+                    Complex, interactive applications built with modern frameworks and best practices for optimal performance.
+                  </p>
+                  <Link href="/services#applications" className="btn btn-primary hover-lift hover-glow-intense">
+                    Learn More →
+                  </Link>
+                </NeumorphicCard>
+              </StaggerItem>
+              
+              <StaggerItem>
+                <NeumorphicCard variant="raised" className="hover-lift">
+                  <h3 className="heading-sm gradient-text" style={{ marginBottom: '1rem' }}>UI/UX Design</h3>
+                  <p className="body-md" style={{ color: 'var(--foreground-muted)', marginBottom: '1.5rem' }}>
+                    User-centered design that combines aesthetics with functionality for exceptional user experiences.
+                  </p>
+                  <Link href="/services#design" className="btn btn-ghost hover-lift">
+                    Learn More →
+                  </Link>
+                </NeumorphicCard>
+              </StaggerItem>
+            </div>
+          </StaggerContainer>
         </div>
-      </main>
+      </section>
+
+      {/* Why Choose Us */}
+      <section className="section-padding" style={{ position: 'relative', overflow: 'hidden' }}>
+        <ForgeBackground />
+        <div className="container-custom" style={{ position: 'relative', zIndex: 1 }}>
+          <ParallaxText speed={0.3}>
+            <h2 className="heading-lg text-center animate-shimmer" style={{ marginBottom: '4rem', textShadow: '0 0 20px rgba(255, 126, 41, 0.5)' }}>Why Choose UIForge</h2>
+          </ParallaxText>
+          
+          <StaggerContainer staggerDelay={0.1}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '3rem' }}>
+              <StaggerItem>
+                <div style={{ textAlign: 'center' }}>
+                  <div className="gradient-primary animate-float" style={{ width: '80px', height: '80px', borderRadius: '50%', margin: '0 auto 1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2rem' }}>
+                    ⚡
+                  </div>
+                  <h3 className="heading-sm" style={{ marginBottom: '1rem' }}>Lightning Fast</h3>
+                  <p className="body-md" style={{ color: 'var(--foreground-muted)' }}>
+                    Optimized performance and blazing-fast load times for superior user experience.
+                  </p>
+                </div>
+              </StaggerItem>
+              
+              <StaggerItem>
+                <div style={{ textAlign: 'center' }}>
+                  <div className="gradient-primary animate-float" style={{ width: '80px', height: '80px', borderRadius: '50%', margin: '0 auto 1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2rem', animationDelay: '0.5s' }}>
+                    🎨
+                  </div>
+                  <h3 className="heading-sm" style={{ marginBottom: '1rem' }}>Pixel Perfect</h3>
+                  <p className="body-md" style={{ color: 'var(--foreground-muted)' }}>
+                    Meticulous attention to detail ensuring every element is crafted to perfection.
+                  </p>
+                </div>
+              </StaggerItem>
+              
+              <StaggerItem>
+                <div style={{ textAlign: 'center' }}>
+                  <div className="gradient-primary animate-float" style={{ width: '80px', height: '80px', borderRadius: '50%', margin: '0 auto 1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2rem', animationDelay: '1s' }}>
+                    📱
+                  </div>
+                  <h3 className="heading-sm" style={{ marginBottom: '1rem' }}>Fully Responsive</h3>
+                  <p className="body-md" style={{ color: 'var(--foreground-muted)' }}>
+                    Seamless experiences across all devices, from mobile to desktop.
+                  </p>
+                </div>
+              </StaggerItem>
+              
+              <StaggerItem>
+                <div style={{ textAlign: 'center' }}>
+                  <div className="gradient-primary animate-float" style={{ width: '80px', height: '80px', borderRadius: '50%', margin: '0 auto 1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2rem', animationDelay: '1.5s' }}>
+                    🚀
+                  </div>
+                  <h3 className="heading-sm" style={{ marginBottom: '1rem' }}>Modern Stack</h3>
+                  <p className="body-md" style={{ color: 'var(--foreground-muted)' }}>
+                    Built with cutting-edge technologies like React, Next.js, and TypeScript.
+                  </p>
+                </div>
+              </StaggerItem>
+            </div>
+          </StaggerContainer>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="gradient-bg-animated" style={{ padding: '8rem 0', position: 'relative', overflow: 'hidden' }}>
+        <ForgeBackground />
+        <div className="container-custom" style={{ textAlign: 'center', position: 'relative', zIndex: 1 }}>
+          <ScrollReveal direction="scale">
+            <h2 className="heading-xl animate-shimmer" style={{ color: 'white', marginBottom: '1.5rem', textShadow: '0 0 30px rgba(255, 126, 41, 0.8), 0 0 60px rgba(255, 126, 41, 0.4)' }}>
+              Ready to Start Your Project?
+            </h2>
+          </ScrollReveal>
+          <ScrollReveal direction="up" delay={0.2}>
+            <p className="body-lg" style={{ color: 'white', marginBottom: '2.5rem', maxWidth: '600px', margin: '0 auto 2.5rem', opacity: 0.9 }}>
+              Let&apos;s bring your vision to life with a custom solution designed just for you.
+            </p>
+          </ScrollReveal>
+          <ScrollReveal direction="up" delay={0.3}>
+            <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+              <Link href="/contact" className="btn btn-secondary btn-lg hover-lift hover-glow-intense" style={{ background: 'white', color: 'var(--primary)', border: 'none' }}>
+                Get in Touch
+              </Link>
+              <Link href="/pricing" className="btn btn-ghost btn-lg hover-lift" style={{ borderColor: 'white', color: 'white' }}>
+                View Pricing
+              </Link>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
     </div>
   );
 }
