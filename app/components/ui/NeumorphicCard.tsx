@@ -17,27 +17,35 @@ export function NeumorphicCard({
   variant = "raised",
   animate = true
 }: NeumorphicCardProps) {
-  const variantClass = {
-    raised: "neumorphic",
-    inset: "neumorphic-inset",
-    embossed: "embossed"
+  const variantStyles = {
+    raised: {
+      background: 'var(--background-charcoal)',
+      boxShadow: '8px 8px 16px rgba(0, 0, 0, 0.5), -8px -8px 16px rgba(40, 40, 40, 0.5)',
+      borderRadius: '1rem'
+    },
+    inset: {
+      background: 'var(--background-charcoal)',
+      boxShadow: 'inset 6px 6px 12px rgba(0, 0, 0, 0.5), inset -6px -6px 12px rgba(40, 40, 40, 0.5)',
+      borderRadius: '1rem'
+    },
+    embossed: {
+      background: 'linear-gradient(145deg, #1f1f1f, #191919)',
+      boxShadow: '5px 5px 10px rgba(0, 0, 0, 0.6), -5px -5px 10px rgba(40, 40, 40, 0.3)',
+      borderRadius: '1rem'
+    }
   }[variant];
 
-  const Component = animate ? motion.div : "div";
-  const animationProps = animate ? {
-    initial: { opacity: 0, scale: 0.95 },
-    whileInView: { opacity: 1, scale: 1 },
-    viewport: { once: true },
-    transition: { duration: 0.4 }
-  } : {};
-
   return (
-    <Component
-      className={clsx(variantClass, "p-6", className)}
-      {...animationProps}
+    <motion.div
+      className={clsx("p-6 transition-all duration-300", className)}
+      style={variantStyles}
+      initial={animate ? { opacity: 0, scale: 0.95 } : false}
+      whileInView={animate ? { opacity: 1, scale: 1 } : undefined}
+      viewport={animate ? { once: true, margin: "-50px" } : undefined}
+      transition={animate ? { duration: 0.5, ease: [0.16, 1, 0.3, 1] } : undefined}
     >
       {children}
-    </Component>
+    </motion.div>
   );
 }
 
@@ -57,15 +65,20 @@ export function NeumorphicButton({
   return (
     <motion.button
       className={clsx(
-        "raised-button",
-        "px-6 py-3 rounded-lg font-semibold text-white",
-        "cursor-pointer border-none",
+        "px-6 py-3 rounded-lg font-semibold",
+        "cursor-pointer border-none transition-all duration-200",
         disabled && "opacity-50 cursor-not-allowed",
         className
       )}
+      style={{
+        background: 'var(--background-charcoal)',
+        boxShadow: '6px 6px 12px rgba(0, 0, 0, 0.5), -6px -6px 12px rgba(40, 40, 40, 0.5)',
+        color: 'var(--primary)'
+      }}
       onClick={onClick}
       disabled={disabled}
-      whileTap={!disabled ? { scale: 0.95 } : {}}
+      whileHover={!disabled ? { scale: 1.02 } : {}}
+      whileTap={!disabled ? { scale: 0.98, boxShadow: 'inset 4px 4px 8px rgba(0, 0, 0, 0.5), inset -4px -4px 8px rgba(40, 40, 40, 0.5)' } : {}}
     >
       {children}
     </motion.button>
@@ -94,12 +107,16 @@ export function NeumorphicInput({
       value={value}
       onChange={(e) => onChange?.(e.target.value)}
       className={clsx(
-        "neumorphic-inset",
-        "px-4 py-3 w-full",
-        "bg-transparent border-none outline-none",
+        "px-4 py-3 w-full rounded-lg",
+        "border-none outline-none transition-all duration-200",
         "text-foreground placeholder:text-muted",
+        "focus:ring-2 focus:ring-primary/30",
         className
       )}
+      style={{
+        background: 'var(--background-charcoal)',
+        boxShadow: 'inset 6px 6px 12px rgba(0, 0, 0, 0.5), inset -6px -6px 12px rgba(40, 40, 40, 0.5)'
+      }}
     />
   );
 }

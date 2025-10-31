@@ -21,33 +21,42 @@ export function GlassCard({
   animate = true,
   style
 }: GlassCardProps) {
-  const glassClass = {
-    default: "glass",
-    light: "glass-light",
-    primary: "glass-primary"
+  const variantStyles = {
+    default: {
+      background: 'rgba(28, 28, 28, 0.7)',
+      backdropFilter: 'blur(20px) saturate(180%)',
+      WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+      border: '1px solid rgba(255, 255, 255, 0.1)'
+    },
+    light: {
+      background: 'rgba(255, 255, 255, 0.05)',
+      backdropFilter: 'blur(10px)',
+      WebkitBackdropFilter: 'blur(10px)',
+      border: '1px solid rgba(255, 255, 255, 0.1)'
+    },
+    primary: {
+      background: 'rgba(255, 126, 41, 0.1)',
+      backdropFilter: 'blur(15px)',
+      WebkitBackdropFilter: 'blur(15px)',
+      border: '1px solid rgba(255, 126, 41, 0.3)'
+    }
   }[variant];
 
-  const Component = animate ? motion.div : "div";
-  const animationProps = animate ? {
-    initial: { opacity: 0, y: 20 },
-    whileInView: { opacity: 1, y: 0 },
-    viewport: { once: true },
-    transition: { duration: 0.5 }
-  } : {};
-
   return (
-    <Component
+    <motion.div
       className={clsx(
-        glassClass,
-        "rounded-2xl p-6",
-        hover && "hover-lift",
+        "rounded-2xl p-6 transition-all duration-300",
         className
       )}
-      style={style}
-      {...animationProps}
+      style={{ ...variantStyles, ...style }}
+      initial={animate ? { opacity: 0, y: 20 } : false}
+      whileInView={animate ? { opacity: 1, y: 0 } : undefined}
+      viewport={animate ? { once: true, margin: "-50px" } : undefined}
+      transition={animate ? { duration: 0.5, ease: [0.16, 1, 0.3, 1] } : undefined}
+      whileHover={hover && animate ? { y: -5, transition: { duration: 0.2 } } : undefined}
     >
       {children}
-    </Component>
+    </motion.div>
   );
 }
 
@@ -58,7 +67,18 @@ interface GlassNavbarProps {
 
 export function GlassNavbar({ children, className = "" }: GlassNavbarProps) {
   return (
-    <nav className={clsx("glass", "sticky top-0 z-50", className)}>
+    <nav 
+      className={clsx("sticky top-0 z-50 transition-all duration-300", className)}
+      style={{
+        background: 'rgba(28, 28, 28, 0.8)',
+        backdropFilter: 'blur(20px) saturate(180%)',
+        WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+        border: '1px solid rgba(255, 255, 255, 0.1)',
+        borderTop: 'none',
+        borderLeft: 'none',
+        borderRight: 'none'
+      }}
+    >
       {children}
     </nav>
   );
@@ -87,7 +107,14 @@ export function GlassModal({ children, isOpen, onClose, className = "" }: GlassM
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.9, opacity: 0 }}
-        className={clsx("glass", "relative rounded-2xl p-8 max-w-2xl w-full", className)}
+        transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+        className={clsx("relative rounded-2xl p-8 max-w-2xl w-full", className)}
+        style={{
+          background: 'rgba(28, 28, 28, 0.9)',
+          backdropFilter: 'blur(20px) saturate(180%)',
+          WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+          border: '1px solid rgba(255, 255, 255, 0.1)'
+        }}
         onClick={(e) => e.stopPropagation()}
       >
         {children}

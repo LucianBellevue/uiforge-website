@@ -108,30 +108,62 @@ const generateParticles = () =>
     delay: Math.random() * 2,
   }));
 
-export function ParticleField() {
+interface ParticleFieldProps {
+  variant?: 'light' | 'dark';
+}
+
+export function ParticleField({ variant = 'light' }: ParticleFieldProps) {
   const [particles] = useState(generateParticles);
+  
+  // Color based on variant
+  const particleColor = variant === 'dark' 
+    ? '#1C1C1C' // Charcoal for light backgrounds
+    : '#FF7E29'; // Orange for dark backgrounds
 
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
       {particles.map((particle) => (
-        <motion.div
-          key={particle.id}
-          className="absolute w-1 h-1 bg-primary rounded-full"
-          style={{
-            left: `${particle.left}%`,
-            top: `${particle.top}%`,
-          }}
-          animate={{
-            y: [0, -100, 0],
-            opacity: [0, 1, 0],
-          }}
-          transition={{
-            duration: particle.duration,
-            repeat: Infinity,
-            delay: particle.delay,
-            ease: "easeInOut",
-          }}
-        />
+        <div key={particle.id} className="absolute" style={{ left: `${particle.left}%`, top: `${particle.top}%` }}>
+          {/* Main particle (largest - 4px) */}
+          <motion.div
+            className="absolute rounded-full"
+            style={{
+              width: '4px',
+              height: '4px',
+              backgroundColor: particleColor,
+            }}
+            animate={{
+              y: [0, -100, 0],
+              opacity: [0, 1, 0],
+            }}
+            transition={{
+              duration: particle.duration,
+              repeat: Infinity,
+              delay: particle.delay,
+              ease: "easeInOut",
+            }}
+          />
+          
+          {/* First trailing particle (3px) */}
+          <motion.div
+            className="absolute rounded-full"
+            style={{
+              width: '3px',
+              height: '3px',
+              backgroundColor: particleColor,
+            }}
+            animate={{
+              y: [0, -85, 0],
+              opacity: [0, 0.8, 0],
+            }}
+            transition={{
+              duration: particle.duration,
+              repeat: Infinity,
+              delay: particle.delay + 0.1,
+              ease: "easeInOut",
+            }}
+          />
+        </div>
       ))}
     </div>
   );

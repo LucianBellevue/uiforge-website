@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ForgeBackground, ScrollReveal, NeumorphicCard, StaggerContainer, StaggerItem, ScrollProgress, ParallaxText, ScrollFade } from "@/app/components/ui";
+import { FloatingOrbs, ParticleField, AnimatedGradient, ScrollReveal, NeumorphicCard, StaggerContainer, StaggerItem, ScrollProgress, ParallaxText, ScrollFade } from "@/app/components/ui";
 
 export default function Home() {
   return (
@@ -8,11 +8,12 @@ export default function Home() {
       
       {/* Hero Section */}
       <section className="section-padding" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden' }}>
-        <ForgeBackground />
+        <FloatingOrbs />
+        <ParticleField />
         <div className="container-custom" style={{ position: 'relative', zIndex: 1 }}>
           <div style={{ textAlign: 'center', maxWidth: '900px', margin: '0 auto' }}>
             <ScrollReveal direction="scale">
-              <h1 className="heading-xl gradient-text animate-shimmer" style={{ textShadow: '0 0 40px rgba(255, 126, 41, 0.8), 0 0 80px rgba(255, 126, 41, 0.4), 0 0 120px rgba(255, 126, 41, 0.2)' }}>
+              <h1 className="heading-xl animate-shimmer" style={{ textShadow: '0 0 40px rgba(255, 126, 41, 0.8), 0 0 80px rgba(255, 126, 41, 0.4), 0 0 120px rgba(255, 126, 41, 0.2)' }}>
                 Forge Your Digital Future
               </h1>
             </ScrollReveal>
@@ -53,7 +54,8 @@ export default function Home() {
 
       {/* Services Preview */}
       <section className="section-padding" style={{ background: 'var(--background-charcoal)', position: 'relative', overflow: 'hidden' }}>
-        <ForgeBackground />
+        <FloatingOrbs />
+        <AnimatedGradient />
         <div className="container-custom" style={{ position: 'relative', zIndex: 1 }}>
           <ParallaxText speed={0.5}>
             <h2 className="heading-lg text-center animate-shimmer" style={{ marginBottom: '1rem', textShadow: '0 0 20px rgba(255, 126, 41, 0.5)' }}>What We Forge</h2>
@@ -108,7 +110,8 @@ export default function Home() {
 
       {/* Why Choose Us */}
       <section className="section-padding" style={{ position: 'relative', overflow: 'hidden' }}>
-        <ForgeBackground />
+        <FloatingOrbs />
+        <ParticleField />
         <div className="container-custom" style={{ position: 'relative', zIndex: 1 }}>
           <ParallaxText speed={0.3}>
             <h2 className="heading-lg text-center animate-shimmer" style={{ marginBottom: '4rem', textShadow: '0 0 20px rgba(255, 126, 41, 0.5)' }}>Why Choose UIForge</h2>
@@ -170,7 +173,9 @@ export default function Home() {
 
       {/* CTA Section */}
       <section className="gradient-bg-animated" style={{ padding: '8rem 0', position: 'relative', overflow: 'hidden' }}>
-        <ForgeBackground />
+        <FloatingOrbs />
+        <AnimatedGradient />
+        <ParticleField variant="dark" />
         <div className="container-custom" style={{ textAlign: 'center', position: 'relative', zIndex: 1 }}>
           <ScrollReveal direction="scale">
             <h2 className="heading-xl animate-shimmer" style={{ color: 'white', marginBottom: '1.5rem', textShadow: '0 0 30px rgba(255, 126, 41, 0.8), 0 0 60px rgba(255, 126, 41, 0.4)' }}>
