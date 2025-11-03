@@ -99,7 +99,7 @@ export function ForgeGlow() {
       <div 
         className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full"
         style={{
-          background: 'radial-gradient(circle, rgba(255, 126, 41, 0.3) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(239, 68, 68, 0.3) 0%, transparent 70%)',
           filter: 'blur(60px)',
           animation: 'float 8s ease-in-out infinite'
         }}
@@ -115,7 +115,7 @@ export function ForgeGlow() {
       <div 
         className="absolute top-1/2 left-1/2 w-72 h-72 rounded-full"
         style={{
-          background: 'radial-gradient(circle, rgba(255, 126, 41, 0.2) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(239, 68, 68, 0.2) 0%, transparent 70%)',
           filter: 'blur(70px)',
           animation: 'float 10s ease-in-out infinite',
           transform: 'translate(-50%, -50%)'

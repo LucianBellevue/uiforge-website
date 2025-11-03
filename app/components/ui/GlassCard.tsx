@@ -35,10 +35,10 @@ export function GlassCard({
       border: '1px solid rgba(255, 255, 255, 0.1)'
     },
     primary: {
-      background: 'rgba(255, 126, 41, 0.1)',
+      background: 'rgba(239, 68, 68, 0.1)',
       backdropFilter: 'blur(15px)',
       WebkitBackdropFilter: 'blur(15px)',
-      border: '1px solid rgba(255, 126, 41, 0.3)'
+      border: '1px solid rgba(239, 68, 68, 0.3)'
     }
   }[variant];
 

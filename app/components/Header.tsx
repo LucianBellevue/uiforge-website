@@ -44,17 +44,17 @@ export function Header() {
       <div className="container-custom">
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           {/* Logo */}
-          <Link href="/" className="hover-lift" style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
+          <Link href="/" style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
             <Image
               src="/uiforge_logo.svg"
-              alt="UIForge Logo"
+              alt="UiForge Logo"
               width={40}
               height={40}
               priority
-              style={{ filter: 'drop-shadow(0 0 10px rgba(255, 126, 41, 0.6)) drop-shadow(0 0 20px rgba(255, 126, 41, 0.3))' }}
+              style={{ filter: 'drop-shadow(0 0 10px rgba(239, 68, 68, 0.6)) drop-shadow(0 0 20px rgba(239, 68, 68, 0.3))' }}
             />
-            <span className="heading-sm gradient-text" style={{ fontWeight: 700, textShadow: '0 0 20px rgba(255, 126, 41, 0.5), 0 0 40px rgba(255, 126, 41, 0.3)' }}>
-              UIForge
+            <span className="heading-sm gradient-text" style={{ fontWeight: 700, textShadow: '0 0 20px rgba(239, 68, 68, 0.5), 0 0 40px rgba(239, 68, 68, 0.3)' }}>
+              UiForge
             </span>
           </Link>
 

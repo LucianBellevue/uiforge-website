@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FloatingOrbs, ParticleField, AnimatedGradient, ScrollReveal, NeumorphicCard, StaggerContainer, StaggerItem, ScrollProgress, ParallaxText, ScrollFade } from "@/app/components/ui";
+import { FloatingOrbs, ParticleField, AnimatedGradient, ScrollReveal, GlassCard, StaggerContainer, StaggerItem, ScrollProgress, ParallaxText, ScrollFade } from "@/app/components/ui";
 
 export default function Home() {
   return (
@@ -13,7 +13,7 @@ export default function Home() {
         <div className="container-custom" style={{ position: 'relative', zIndex: 1 }}>
           <div style={{ textAlign: 'center', maxWidth: '900px', margin: '0 auto' }}>
             <ScrollReveal direction="scale">
-              <h1 className="heading-xl animate-shimmer" style={{ textShadow: '0 0 40px rgba(255, 126, 41, 0.8), 0 0 80px rgba(255, 126, 41, 0.4), 0 0 120px rgba(255, 126, 41, 0.2)' }}>
+              <h1 className="heading-xl animate-shimmer" style={{ textShadow: '0 0 40px rgba(239, 68, 68, 0.8), 0 0 80px rgba(239, 68, 68, 0.4), 0 0 120px rgba(239, 68, 68, 0.2)' }}>
                 Forge Your Digital Future
               </h1>
             </ScrollReveal>
@@ -58,7 +58,7 @@ export default function Home() {
         <AnimatedGradient />
         <div className="container-custom" style={{ position: 'relative', zIndex: 1 }}>
           <ParallaxText speed={0.5}>
-            <h2 className="heading-lg text-center animate-shimmer" style={{ marginBottom: '1rem', textShadow: '0 0 20px rgba(255, 126, 41, 0.5)' }}>What We Forge</h2>
+            <h2 className="heading-lg text-center animate-shimmer" style={{ marginBottom: '1rem', textShadow: '0 0 20px rgba(239, 68, 68, 0.5)' }}>What We Forge</h2>
           </ParallaxText>
           <ScrollReveal direction="up" delay={0.1}>
             <p className="body-lg text-center" style={{ color: 'var(--foreground-muted)', marginBottom: '4rem', maxWidth: '600px', margin: '1rem auto 4rem' }}>
@@ -67,41 +67,50 @@ export default function Home() {
           </ScrollReveal>
           
           <StaggerContainer staggerDelay={0.15}>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2rem' }}>
               <StaggerItem>
-                <NeumorphicCard variant="raised" className="hover-lift">
-                  <h3 className="heading-sm gradient-text" style={{ marginBottom: '1rem' }}>Custom Websites</h3>
-                  <p className="body-md" style={{ color: 'var(--foreground-muted)', marginBottom: '1.5rem' }}>
-                    Beautifully designed, fully responsive websites that capture your brand essence and engage your audience.
-                  </p>
-                  <Link href="/services#websites" className="btn btn-ghost hover-lift">
-                    Learn More →
-                  </Link>
-                </NeumorphicCard>
+                <GlassCard variant="default" hover={true} animate={true} className="group" style={{ height: '100%', display: 'flex', flexDirection: 'column', padding: '2.5rem' }}>
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
+                  <div style={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', height: '100%' }}>
+                    <h3 className="heading-sm gradient-text" style={{ marginBottom: '1.25rem' }}>Custom Websites</h3>
+                    <p className="body-md" style={{ color: 'var(--foreground-muted)', marginBottom: '2rem', flex: 1, lineHeight: '1.7' }}>
+                      Beautifully designed, fully responsive websites that capture your brand essence and engage your audience.
+                    </p>
+                    <Link href="/services#websites" className="btn btn-ghost hover-lift" style={{ alignSelf: 'flex-start' }}>
+                      Learn More →
+                    </Link>
+                  </div>
+                </GlassCard>
               </StaggerItem>
               
               <StaggerItem>
-                <NeumorphicCard variant="embossed" className="hover-glow-intense">
-                  <h3 className="heading-sm gradient-text" style={{ marginBottom: '1rem' }}>Web Applications</h3>
-                  <p className="body-md" style={{ color: 'var(--foreground-muted)', marginBottom: '1.5rem' }}>
-                    Complex, interactive applications built with modern frameworks and best practices for optimal performance.
-                  </p>
-                  <Link href="/services#applications" className="btn btn-primary hover-lift hover-glow-intense">
-                    Learn More →
-                  </Link>
-                </NeumorphicCard>
+                <GlassCard variant="primary" hover={true} animate={true} className="group border-2 border-primary/30" style={{ height: '100%', display: 'flex', flexDirection: 'column', padding: '2.5rem' }}>
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent opacity-50 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
+                  <div style={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', height: '100%' }}>
+                    <h3 className="heading-sm gradient-text" style={{ marginBottom: '1.25rem' }}>Web Applications</h3>
+                    <p className="body-md" style={{ color: 'var(--foreground-muted)', marginBottom: '2rem', flex: 1, lineHeight: '1.7' }}>
+                      Complex, interactive applications built with modern frameworks and best practices for optimal performance.
+                    </p>
+                    <Link href="/services#applications" className="btn btn-primary hover-lift hover-glow-intense" style={{ alignSelf: 'flex-start' }}>
+                      Learn More →
+                    </Link>
+                  </div>
+                </GlassCard>
               </StaggerItem>
               
               <StaggerItem>
-                <NeumorphicCard variant="raised" className="hover-lift">
-                  <h3 className="heading-sm gradient-text" style={{ marginBottom: '1rem' }}>UI/UX Design</h3>
-                  <p className="body-md" style={{ color: 'var(--foreground-muted)', marginBottom: '1.5rem' }}>
-                    User-centered design that combines aesthetics with functionality for exceptional user experiences.
-                  </p>
-                  <Link href="/services#design" className="btn btn-ghost hover-lift">
-                    Learn More →
-                  </Link>
-                </NeumorphicCard>
+                <GlassCard variant="default" hover={true} animate={true} className="group" style={{ height: '100%', display: 'flex', flexDirection: 'column', padding: '2.5rem' }}>
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
+                  <div style={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', height: '100%' }}>
+                    <h3 className="heading-sm gradient-text" style={{ marginBottom: '1.25rem' }}>UI/UX Design</h3>
+                    <p className="body-md" style={{ color: 'var(--foreground-muted)', marginBottom: '2rem', flex: 1, lineHeight: '1.7' }}>
+                      User-centered design that combines aesthetics with functionality for exceptional user experiences.
+                    </p>
+                    <Link href="/services#design" className="btn btn-ghost hover-lift" style={{ alignSelf: 'flex-start' }}>
+                      Learn More →
+                    </Link>
+                  </div>
+                </GlassCard>
               </StaggerItem>
             </div>
           </StaggerContainer>
@@ -114,7 +123,7 @@ export default function Home() {
         <ParticleField />
         <div className="container-custom" style={{ position: 'relative', zIndex: 1 }}>
           <ParallaxText speed={0.3}>
-            <h2 className="heading-lg text-center animate-shimmer" style={{ marginBottom: '4rem', textShadow: '0 0 20px rgba(255, 126, 41, 0.5)' }}>Why Choose UIForge</h2>
+            <h2 className="heading-lg text-center animate-shimmer" style={{ marginBottom: '4rem', textShadow: '0 0 20px rgba(239, 68, 68, 0.5)' }}>Why Choose UiForge</h2>
           </ParallaxText>
           
           <StaggerContainer staggerDelay={0.1}>
@@ -178,7 +187,7 @@ export default function Home() {
         <ParticleField variant="dark" />
         <div className="container-custom" style={{ textAlign: 'center', position: 'relative', zIndex: 1 }}>
           <ScrollReveal direction="scale">
-            <h2 className="heading-xl animate-shimmer" style={{ color: 'white', marginBottom: '1.5rem', textShadow: '0 0 30px rgba(255, 126, 41, 0.8), 0 0 60px rgba(255, 126, 41, 0.4)' }}>
+            <h2 className="heading-xl animate-shimmer" style={{ color: 'white', marginBottom: '1.5rem', textShadow: '0 0 30px rgba(239, 68, 68, 0.8), 0 0 60px rgba(239, 68, 68, 0.4)' }}>
               Ready to Start Your Project?
             </h2>
           </ScrollReveal>

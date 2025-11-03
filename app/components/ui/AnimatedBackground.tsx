@@ -32,7 +32,7 @@ export function FloatingOrbs() {
             height: orb.height,
             left: `${orb.left}%`,
             top: `${orb.top}%`,
-            background: `radial-gradient(circle, rgba(255, 126, 41, ${orb.opacity}) 0%, transparent 70%)`,
+            background: `radial-gradient(circle, rgba(239, 68, 68, ${orb.opacity}) 0%, transparent 70%)`,
             filter: 'blur(40px)',
           }}
           animate={{
@@ -65,7 +65,7 @@ export function GridPattern() {
             <path
               d="M 40 0 L 0 0 0 40"
               fill="none"
-              stroke="rgba(255, 126, 41, 0.3)"
+              stroke="rgba(239, 68, 68, 0.3)"
               strokeWidth="1"
             />
           </pattern>
@@ -82,7 +82,7 @@ export function AnimatedGradient() {
       <motion.div
         className="absolute inset-0"
         style={{
-          background: 'radial-gradient(circle at 50% 50%, rgba(255, 126, 41, 0.15) 0%, transparent 50%)',
+          background: 'radial-gradient(circle at 50% 50%, rgba(239, 68, 68, 0.15) 0%, transparent 50%)',
         }}
         animate={{
           scale: [1, 1.2, 1],
@@ -118,7 +118,7 @@ export function ParticleField({ variant = 'light' }: ParticleFieldProps) {
   // Color based on variant
   const particleColor = variant === 'dark' 
     ? '#1C1C1C' // Charcoal for light backgrounds
-    : '#FF7E29'; // Orange for dark backgrounds
+    : '#EF4444'; // Red for dark backgrounds
 
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -182,7 +182,7 @@ export function WaveBackground({ className = "" }: WaveBackgroundProps) {
         preserveAspectRatio="none"
       >
         <motion.path
-          fill="rgba(255, 126, 41, 0.1)"
+          fill="rgba(239, 68, 68, 0.1)"
           d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,138.7C960,139,1056,117,1152,106.7C1248,96,1344,96,1392,96L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
           animate={{
             d: [

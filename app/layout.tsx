@@ -16,12 +16,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "UIForge - Premium Frontend Development Services",
+  title: "UiForge - Premium Frontend Development Services",
   description: "Transform your vision into stunning web experiences. Custom websites, web applications, and frontend development services tailored to your needs.",
   keywords: ["frontend development", "web design", "custom websites", "web applications", "React", "Next.js"],
-  authors: [{ name: "UIForge" }],
+  authors: [{ name: "UiForge" }],
   openGraph: {
-    title: "UIForge - Premium Frontend Development Services",
+    title: "UiForge - Premium Frontend Development Services",
     description: "Transform your vision into stunning web experiences.",
     type: "website",
   },

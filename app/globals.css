@@ -1,13 +1,13 @@
 @import "tailwindcss";
 
 /* ========================================
-   UIForge Design System
+   UiForge Design System
    ======================================== */
 
 :root {
   /* Brand Colors */
-  --primary: #FF7E29;
-  --primary-light: #FFB347;
+  --primary: #EF4444;
+  --primary-light: #F87171;
   --background-charcoal: #1C1C1C;
   --background-deep: #0E0E0E;
   --foreground: #FFFFFF;
@@ -166,12 +166,12 @@ body {
 .btn-primary {
   background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
   color: white;
-  box-shadow: 0 4px 15px rgba(255, 126, 41, 0.3);
+  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255, 126, 41, 0.4);
+  box-shadow: 0 6px 20px rgba(239, 68, 68, 0.4);
 }
 
 .btn-primary:active {
@@ -196,7 +196,7 @@ body {
 }
 
 .btn-ghost:hover {
-  background: rgba(255, 126, 41, 0.1);
+  background: rgba(239, 68, 68, 0.1);
   border-color: var(--primary);
 }
 
@@ -223,9 +223,9 @@ body {
 }
 
 .card:hover {
-  border-color: rgba(255, 126, 41, 0.3);
+  border-color: rgba(239, 68, 68, 0.3);
   transform: translateY(-4px);
-  box-shadow: 0 8px 30px rgba(255, 126, 41, 0.15);
+  box-shadow: 0 8px 30px rgba(239, 68, 68, 0.15);
 }
 
 .card-highlight {
@@ -270,11 +270,11 @@ body {
    ======================================== */
 
 .glow-primary {
-  box-shadow: 0 0 20px rgba(255, 126, 41, 0.5);
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.5);
 }
 
 .text-glow {
-  text-shadow: 0 0 20px rgba(255, 126, 41, 0.6);
+  text-shadow: 0 0 20px rgba(239, 68, 68, 0.6);
 }
 
 .backdrop-blur {
@@ -303,10 +303,10 @@ body {
 
 @keyframes pulse-glow {
   0%, 100% {
-    box-shadow: 0 0 20px rgba(255, 126, 41, 0.3);
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.3);
   }
   50% {
-    box-shadow: 0 0 30px rgba(255, 126, 41, 0.6);
+    box-shadow: 0 0 30px rgba(239, 68, 68, 0.6);
   }
 }
 
@@ -351,10 +351,10 @@ body {
 }
 
 .glass-primary {
-  background: rgba(255, 126, 41, 0.1);
+  background: rgba(239, 68, 68, 0.1);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
-  border: 1px solid rgba(255, 126, 41, 0.3);
+  border: 1px solid rgba(239, 68, 68, 0.3);
 }
 
 /* ========================================
@@ -558,7 +558,7 @@ body {
 
 .hover-lift:hover {
   transform: translateY(-8px);
-  box-shadow: 0 12px 40px rgba(255, 126, 41, 0.3);
+  box-shadow: 0 12px 40px rgba(239, 68, 68, 0.3);
 }
 
 .hover-tilt {
@@ -575,9 +575,9 @@ body {
 
 .hover-glow-intense:hover {
   box-shadow: 
-    0 0 30px rgba(255, 126, 41, 0.6),
-    0 0 60px rgba(255, 126, 41, 0.4),
-    0 0 90px rgba(255, 126, 41, 0.2);
+    0 0 30px rgba(239, 68, 68, 0.6),
+    0 0 60px rgba(239, 68, 68, 0.4),
+    0 0 90px rgba(239, 68, 68, 0.2);
 }
 
 /* ========================================
