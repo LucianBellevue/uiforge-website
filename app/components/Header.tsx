@@ -35,7 +35,7 @@ export function Header() {
     <motion.header
       className={clsx(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        isScrolled ? "glass py-3" : "py-5"
+        isScrolled ? "glass py-6" : "py-8"
       )}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
@@ -44,37 +44,40 @@ export function Header() {
       <div className="container-custom">
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           {/* Logo */}
-          <Link href="/" style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
+          <Link href="/" style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
             <Image
               src="/uiforge_logo.svg"
               alt="UiForge Logo"
-              width={40}
-              height={40}
+              width={48}
+              height={48}
               priority
               style={{ filter: 'drop-shadow(0 0 10px rgba(239, 68, 68, 0.6)) drop-shadow(0 0 20px rgba(239, 68, 68, 0.3))' }}
             />
-            <span className="heading-sm gradient-text" style={{ fontWeight: 700, textShadow: '0 0 20px rgba(239, 68, 68, 0.5), 0 0 40px rgba(239, 68, 68, 0.3)' }}>
+            <span className="heading-md gradient-text" style={{ fontWeight: 700, textShadow: '0 0 20px rgba(239, 68, 68, 0.5), 0 0 40px rgba(239, 68, 68, 0.3)' }}>
               UiForge
             </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex" style={{ gap: "2rem", alignItems: "center" }}>
+          <nav className="hidden md:flex" style={{ gap: "2.5rem", alignItems: "center" }}>
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 className={clsx(
-                  "body-md transition-colors duration-200",
+                  "body-md transition-colors duration-200 relative nav-link",
                   pathname === link.href
                     ? "gradient-text font-semibold"
-                    : "hover:text-[var(--primary)]"
+                    : ""
                 )}
+                style={{ position: 'relative', paddingBottom: '0.5rem' }}
               >
                 {link.label}
+                {/* Bubbling underline animation */}
+                <span className="nav-underline" />
               </Link>
             ))}
-            <Link href="/contact" className="btn btn-primary btn-sm hover-lift">
+            <Link href="/contact" className="btn btn-primary hover-lift" style={{ padding: '0.75rem 1.5rem' }}>
               Get Started
             </Link>
           </nav>

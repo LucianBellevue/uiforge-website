@@ -28,3 +28,6 @@ export {
 
 // 3D Forge Background
 export { ForgeBackground, ForgeGlow } from './ForgeBackground';
+
+// Section Divider
+export { SectionDivider } from './SectionDivider';

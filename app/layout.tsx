@@ -3,6 +3,7 @@ import { Space_Grotesk, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
+import { ReduxProvider } from "./components/providers/ReduxProvider";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -37,11 +38,13 @@ export default function RootLayout({
       <body
         className={`${spaceGrotesk.variable} ${geistMono.variable} antialiased`}
       >
-        <Header />
-        <main style={{ paddingTop: "80px" }}>
-          {children}
-        </main>
-        <Footer />
+        <ReduxProvider>
+          <Header />
+          <main style={{ paddingTop: "80px" }}>
+            {children}
+          </main>
+          <Footer />
+        </ReduxProvider>
       </body>
     </html>
   );

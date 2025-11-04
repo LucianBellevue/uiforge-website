@@ -120,10 +120,17 @@ export function ParticleField({ variant = 'light' }: ParticleFieldProps) {
     ? '#1C1C1C' // Charcoal for light backgrounds
     : '#EF4444'; // Red for dark backgrounds
 
+  // Client-side only rendering - prevents hydration mismatch
+  const isClient = typeof window !== 'undefined';
+  
+  if (!isClient) {
+    return <div className="absolute inset-0 overflow-hidden pointer-events-none" suppressHydrationWarning />;
+  }
+
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+    <div className="absolute inset-0 overflow-hidden pointer-events-none" suppressHydrationWarning>
       {particles.map((particle) => (
-        <div key={particle.id} className="absolute" style={{ left: `${particle.left}%`, top: `${particle.top}%` }}>
+        <div key={particle.id} className="absolute" style={{ left: `${particle.left}%`, top: `${particle.top}%` }} suppressHydrationWarning>
           {/* Main particle (largest - 4px) */}
           <motion.div
             className="absolute rounded-full"
