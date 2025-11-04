@@ -149,9 +149,30 @@ export default function Home() {
   ];
 
   const testimonials = [
-    { quote: "UiForge transformed our online presence completely. The attention to detail and professionalism was outstanding.", name: "Sarah Johnson", title: "CEO, TechStart Inc." },
-    { quote: "Working with UiForge was a breeze. They delivered exactly what we needed, on time and within budget.", name: "Michael Chen", title: "Founder, Digital Ventures" },
-    { quote: "The performance improvements were incredible. Our site went from sluggish to lightning-fast.", name: "Emily Rodriguez", title: "Marketing Director, GrowthCo" }
+    { 
+      quote: "UiForge transformed our online presence completely. The attention to detail and professionalism was outstanding.", 
+      name: "Sarah Johnson", 
+      title: "CEO, TechStart Inc.",
+      rating: 5,
+      avatar: "SJ",
+      color: "#EF4444"
+    },
+    { 
+      quote: "Working with UiForge was a breeze. They delivered exactly what we needed, on time and within budget.", 
+      name: "Michael Chen", 
+      title: "Founder, Digital Ventures",
+      rating: 5,
+      avatar: "MC",
+      color: "#F87171"
+    },
+    { 
+      quote: "The performance improvements were incredible. Our site went from sluggish to lightning-fast.", 
+      name: "Emily Rodriguez", 
+      title: "Marketing Director, GrowthCo",
+      rating: 5,
+      avatar: "ER",
+      color: "#EF4444"
+    }
   ];
 
   return (
@@ -222,6 +243,7 @@ export default function Home() {
         <div className="container-custom" style={{ position: 'relative', zIndex: 10 }}>
           <ParallaxText speed={0.5}>
             <h2 className="heading-lg text-center" style={{ 
+              paddingBottom: '2rem',
               marginBottom: '2rem',
               background: 'linear-gradient(135deg, #000000 0%, var(--primary) 50%, #000000 100%)',
               WebkitBackgroundClip: 'text',
@@ -231,7 +253,7 @@ export default function Home() {
             }}>What We Forge</h2>
           </ParallaxText>
           <ScrollReveal direction="up" delay={0.1}>
-            <p className="body-lg text-center" style={{ color: 'var(--foreground-muted)', marginBottom: '4rem', maxWidth: '600px', margin: '0 auto 4rem' }}>
+            <p className="body-lg text-center" style={{ color: 'var(--foreground-muted)', marginBottom: '4rem', maxWidth: '600px', margin: '0 auto 3rem' }}>
               From complete websites to complex web applications, we craft digital experiences that stand out.
             </p>
           </ScrollReveal>
@@ -279,6 +301,7 @@ export default function Home() {
         <div className="container-custom" style={{ position: 'relative', zIndex: 10 }}>
           <ScrollReveal direction="up">
             <h2 className="heading-lg text-center" style={{ 
+              paddingBottom: '2rem',
               marginBottom: '2rem',
               background: 'linear-gradient(135deg, #000000 0%, var(--primary) 50%, #000000 100%)',
               WebkitBackgroundClip: 'text',
@@ -286,9 +309,7 @@ export default function Home() {
               backgroundClip: 'text',
               textShadow: '0 0 20px rgba(239, 68, 68, 0.3), 0 0 40px rgba(239, 68, 68, 0.15)'
             }}>Why Choose UiForge</h2>
-            <p className="body-lg text-center" style={{ color: 'var(--foreground-muted)', maxWidth: '800px', margin: '0 auto 3rem', fontSize: '1.1rem' }}>
-              Your website shouldn&apos;t be just another template — it should perform, convert, and impress.
-            </p>
+            
           </ScrollReveal>
           <ScrollReveal direction="up" delay={0.2}>
             <div className="glass rounded-2xl" style={{ padding: '2.5rem', overflowX: 'auto' }}>
@@ -311,6 +332,9 @@ export default function Home() {
                 </tbody>
               </table>
             </div>
+            <p className="body-lg text-center" style={{ paddingTop: '4rem', color: 'var(--foreground-muted)', maxWidth: '800px', margin: '0 auto 3rem', fontSize: '1.1rem' }}>
+              Your website shouldn&apos;t be just another template — it should perform, convert, and impress.
+            </p>
           </ScrollReveal>
         </div>
       </section>
@@ -389,6 +413,7 @@ export default function Home() {
         <div className="container-custom" style={{ position: 'relative', zIndex: 10 }}>
           <ScrollReveal direction="up">
             <h2 className="heading-lg text-center" style={{ 
+              paddingBottom: '2rem',
               marginBottom: '4rem',
               background: 'linear-gradient(135deg, #000000 0%, var(--primary) 50%, #000000 100%)',
               WebkitBackgroundClip: 'text',
@@ -398,16 +423,79 @@ export default function Home() {
             }}>What Our Clients Say</h2>
           </ScrollReveal>
           <StaggerContainer staggerDelay={0.15}>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2.5rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '2.5rem' }}>
               {testimonials.map((testimonial, index) => (
                 <StaggerItem key={index}>
-                  <GlassCard variant="default" hover={true} animate={true} style={{ height: '100%', padding: '2.5rem' }}>
-                    <p className="body-md" style={{ color: 'var(--foreground-muted)', marginBottom: '1.5rem', fontStyle: 'italic', lineHeight: '1.7' }}>
+                  <GlassCard variant="default" hover={true} animate={true} style={{ 
+                    height: '100%', 
+                    padding: '3rem',
+                    position: 'relative',
+                    overflow: 'hidden'
+                  }}>
+                    {/* Large decorative quote mark */}
+                    <div style={{
+                      position: 'absolute',
+                      top: '1.5rem',
+                      right: '1.5rem',
+                      fontSize: '4rem',
+                      color: 'rgba(239, 68, 68, 0.1)',
+                      fontFamily: 'Georgia, serif',
+                      lineHeight: 1,
+                      fontWeight: 'bold'
+                    }}>&ldquo;</div>
+                    
+                    {/* Star Rating */}
+                    <div style={{ display: 'flex', gap: '0.25rem', marginBottom: '1.5rem' }}>
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <span key={i} style={{ 
+                          color: 'var(--primary)', 
+                          fontSize: '1.25rem',
+                          filter: 'drop-shadow(0 0 4px rgba(239, 68, 68, 0.6))'
+                        }}>★</span>
+                      ))}
+                    </div>
+
+                    {/* Quote */}
+                    <p className="body-lg" style={{ 
+                      color: 'var(--foreground)', 
+                      marginBottom: '2rem', 
+                      fontStyle: 'italic', 
+                      lineHeight: '1.8',
+                      position: 'relative',
+                      zIndex: 1
+                    }}>
                       &quot;{testimonial.quote}&quot;
                     </p>
-                    <div>
-                      <p className="body-md" style={{ fontWeight: '600' }}>{testimonial.name}</p>
-                      <p className="body-sm" style={{ color: 'var(--foreground-muted)' }}>{testimonial.title}</p>
+                    
+                    {/* Author Info with Avatar */}
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                      {/* Avatar Circle */}
+                      <div style={{
+                        width: '56px',
+                        height: '56px',
+                        borderRadius: '50%',
+                        background: `linear-gradient(135deg, ${testimonial.color}, rgba(239, 68, 68, 0.3))`,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        fontWeight: '700',
+                        fontSize: '1.25rem',
+                        color: 'white',
+                        border: '2px solid rgba(239, 68, 68, 0.3)',
+                        boxShadow: '0 0 20px rgba(239, 68, 68, 0.3)',
+                        flexShrink: 0
+                      }}>
+                        {testimonial.avatar}
+                      </div>
+                      
+                      <div>
+                        <p className="body-md" style={{ fontWeight: '600', marginBottom: '0.25rem' }}>
+                          {testimonial.name}
+                        </p>
+                        <p className="body-sm" style={{ color: 'var(--foreground-muted)' }}>
+                          {testimonial.title}
+                        </p>
+                      </div>
                     </div>
                   </GlassCard>
                 </StaggerItem>

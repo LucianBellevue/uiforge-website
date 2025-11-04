@@ -42,9 +42,9 @@ export function Header() {
       transition={{ duration: 0.5 }}
     >
       <div className="container-custom">
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+        <div style={{ padding: '0.5rem', display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           {/* Logo */}
-          <Link href="/" style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
+          <Link href="/" style={{ paddingBottom: '0.5rem', display: "flex", alignItems: "center", gap: "1rem" }}>
             <Image
               src="/uiforge_logo.svg"
               alt="UiForge Logo"
@@ -53,7 +53,7 @@ export function Header() {
               priority
               style={{ filter: 'drop-shadow(0 0 10px rgba(239, 68, 68, 0.6)) drop-shadow(0 0 20px rgba(239, 68, 68, 0.3))' }}
             />
-            <span className="heading-md gradient-text" style={{ fontWeight: 700, textShadow: '0 0 20px rgba(239, 68, 68, 0.5), 0 0 40px rgba(239, 68, 68, 0.3)' }}>
+            <span className="heading-md gradient-text" style={{ paddingTop: '0.5rem', fontSize: 'clamp(1.5rem, 5vw, 2rem)', fontWeight: 700, textShadow: '0 0 20px rgba(239, 68, 68, 0.5), 0 0 40px rgba(239, 68, 68, 0.3)' }}>
               UiForge
             </span>
           </Link>
