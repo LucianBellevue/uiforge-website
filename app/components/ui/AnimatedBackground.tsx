@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useSyncExternalStore } from "react";
 
 // Helper function to generate random orbs (called once during initialization)
 const generateOrbs = () => 
@@ -20,6 +20,17 @@ const generateOrbs = () =>
 
 export function FloatingOrbs() {
   const [orbs] = useState(generateOrbs);
+
+  // Proper hydration handling - prevent server/client mismatch
+  const isClient = useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false
+  );
+
+  if (!isClient) {
+    return <div className="absolute inset-0 overflow-hidden pointer-events-none" />;
+  }
 
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -120,17 +131,22 @@ export function ParticleField({ variant = 'light' }: ParticleFieldProps) {
     ? '#1C1C1C' // Charcoal for light backgrounds
     : '#EF4444'; // Red for dark backgrounds
 
-  // Client-side only rendering - prevents hydration mismatch
-  const isClient = typeof window !== 'undefined';
-  
+  // Proper hydration handling with useSyncExternalStore
+  // This prevents hydration mismatch without triggering cascading renders
+  const isClient = useSyncExternalStore(
+    () => () => {}, // subscribe function (no-op since we don't need updates)
+    () => true,      // getSnapshot (client-side always returns true)
+    () => false      // getServerSnapshot (server-side always returns false)
+  );
+
   if (!isClient) {
-    return <div className="absolute inset-0 overflow-hidden pointer-events-none" suppressHydrationWarning />;
+    return <div className="absolute inset-0 overflow-hidden pointer-events-none" />;
   }
 
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none" suppressHydrationWarning>
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
       {particles.map((particle) => (
-        <div key={particle.id} className="absolute" style={{ left: `${particle.left}%`, top: `${particle.top}%` }} suppressHydrationWarning>
+        <div key={particle.id} className="absolute" style={{ left: `${particle.left}%`, top: `${particle.top}%` }}>
           {/* Main particle (largest - 4px) */}
           <motion.div
             className="absolute rounded-full"
