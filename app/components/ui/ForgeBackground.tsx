@@ -29,15 +29,15 @@ function LavaBlob({ position, scale, speed }: { position: [number, number, numbe
 
   return (
     <mesh ref={meshRef} position={position}>
-      <sphereGeometry args={[1, 64, 64]} />
+      <sphereGeometry args={[1, 32, 32]} />
       <meshStandardMaterial
-        color="#FF4500"
-        emissive="#FF7E29"
-        emissiveIntensity={1.2}
-        roughness={0.1}
-        metalness={0.95}
-        transparent={false}
-        opacity={1}
+        color="#EF4444"
+        emissive="#EF4444"
+        emissiveIntensity={2.5}
+        roughness={0.8}
+        metalness={0.1}
+        transparent={true}
+        opacity={0.85}
       />
     </mesh>
   );
@@ -45,15 +45,15 @@ function LavaBlob({ position, scale, speed }: { position: [number, number, numbe
 
 // Helper function to generate random blob positions
 const generateBlobs = () => 
-  Array.from({ length: 12 }, (_, i) => ({
+  Array.from({ length: 8 }, (_, i) => ({
     id: i,
     position: [
-      (Math.random() - 0.5) * 12,
       (Math.random() - 0.5) * 10,
-      (Math.random() - 0.5) * 6 - 3
+      (Math.random() - 0.5) * 8,
+      (Math.random() - 0.5) * 5 - 2
     ] as [number, number, number],
-    scale: Math.random() * 1.2 + 0.6,
-    speed: Math.random() * 0.4 + 0.2
+    scale: Math.random() * 1.5 + 0.8,
+    speed: Math.random() * 0.3 + 0.15
   }));
 
 function ForgeScene() {
@@ -61,11 +61,11 @@ function ForgeScene() {
 
   return (
     <>
-      <ambientLight intensity={0.4} />
-      <pointLight position={[10, 10, 10]} intensity={1.5} color="#FFB347" />
-      <pointLight position={[-10, -10, -10]} intensity={1} color="#FF7E29" />
-      <pointLight position={[0, 0, 5]} intensity={0.8} color="#FF4500" />
-      <spotLight position={[0, 10, 0]} intensity={1.2} color="#FF7E29" angle={0.6} penumbra={0.5} />
+      <ambientLight intensity={0.3} />
+      <pointLight position={[5, 5, 8]} intensity={1.2} color="#EF4444" />
+      <pointLight position={[-5, -5, 8]} intensity={1.0} color="#F87171" />
+      <pointLight position={[0, 0, 6]} intensity={0.8} color="#EF4444" />
+      <spotLight position={[0, 8, 5]} intensity={1.0} color="#EF4444" angle={0.5} penumbra={0.6} />
       
       {blobs.map((blob) => (
         <LavaBlob
@@ -81,9 +81,9 @@ function ForgeScene() {
 
 export function ForgeBackground() {
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none" style={{ opacity: 0.6 }}>
+    <div className="absolute inset-0 overflow-hidden pointer-events-none" style={{ opacity: 0.7 }}>
       <Canvas
-        camera={{ position: [0, 0, 10], fov: 50 }}
+        camera={{ position: [0, 0, 10], fov: 45 }}
         style={{ background: 'transparent' }}
       >
         <ForgeScene />

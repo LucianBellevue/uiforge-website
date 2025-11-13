@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { motion, useMotionValue, useTransform, animate, useInView } from "framer-motion";
-import { FloatingOrbs, ParticleField } from "@/app/components/ui/AnimatedBackground";
+import { ParticleField } from "@/app/components/ui/AnimatedBackground";
+import { SectionDivider } from "@/app/components/ui/SectionDivider";
 import { FaCode, FaHandshake, FaRocket, FaTrophy } from "react-icons/fa";
 import { useEffect, useRef } from "react";
 
@@ -39,12 +40,11 @@ export default function About() {
       <section style={{ 
         position: 'relative', 
         overflow: 'hidden',
-        background: 'var(--background-deep-black)',
+        background: 'var(--background-deep)',
         paddingTop: 'clamp(120px, 15vw, 180px)',
         paddingBottom: 'clamp(120px, 15vw, 180px)',
+        zIndex: 1,
       }}>
-        {/* Animated Background */}
-        <FloatingOrbs />
         <ParticleField variant="light" />
         
         {/* Grid Pattern */}
@@ -173,8 +173,14 @@ export default function About() {
         background: 'var(--background-charcoal)',
         paddingTop: 'clamp(100px, 12vw, 150px)',
         paddingBottom: 'clamp(100px, 12vw, 150px)',
+        overflow: 'visible',
+        zIndex: 2,
       }}>
-        <div className="container-custom">
+        <SectionDivider variant="liquid" position="top" color="var(--background-deep)" />
+        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '400px', overflow: 'hidden', zIndex: 0, pointerEvents: 'none' }}>
+          <ParticleField variant="light" />
+        </div>
+        <div className="container-custom" style={{ position: 'relative', zIndex: 10 }}>
           {/* Section Header */}
           <div style={{ textAlign: 'center', marginBottom: '5rem' }}>
             <motion.h2
@@ -555,10 +561,13 @@ export default function About() {
       {/* Our Story & Stats Section */}
       <section style={{ 
         position: 'relative',
-        background: 'var(--background-deep-black)',
+        background: 'var(--background-deep)',
         paddingTop: 'clamp(100px, 12vw, 150px)',
         paddingBottom: 'clamp(100px, 12vw, 150px)',
+        overflow: 'visible',
+        zIndex: 3,
       }}>
+        <SectionDivider variant="drip" position="top" color="var(--background-charcoal)" />
         <ParticleField variant="light" />
         
         <div className="container-custom" style={{ position: 'relative', zIndex: 10 }}>
@@ -701,103 +710,197 @@ export default function About() {
       {/* CTA Section - Enhanced */}
       <section style={{ 
         position: 'relative',
-        background: 'linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(239, 68, 68, 0.05) 100%)',
+        background: 'var(--background-charcoal)',
         paddingTop: 'clamp(80px, 10vw, 120px)',
         paddingBottom: 'clamp(80px, 10vw, 120px)',
-        overflow: 'hidden',
+        overflow: 'visible',
+        zIndex: 4,
       }}>
-        {/* Animated Background */}
-        <motion.div
-          style={{
-            position: 'absolute',
-            top: '-50%',
-            left: '50%',
-            transform: 'translateX(-50%)',
-            width: '150%',
-            height: '200%',
-            background: 'radial-gradient(circle, rgba(239, 68, 68, 0.1) 0%, transparent 70%)',
-            pointerEvents: 'none',
-          }}
-          animate={{
-            scale: [1, 1.2, 1],
-            rotate: [0, 180, 360],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: 'linear',
-          }}
-        />
+        <SectionDivider variant="wave" position="top" color="var(--background-deep)" flip={true} />
+        <ParticleField variant="light" />
 
-        <div className="container-custom" style={{ position: 'relative', zIndex: 10, textAlign: 'center' }}>
+        <div className="container-custom" style={{ position: 'relative', zIndex: 10 }}>
           <motion.div
-            style={{ maxWidth: '700px', margin: '0 auto' }}
+            style={{
+              position: 'relative',
+              maxWidth: '900px',
+              margin: '0 auto',
+              padding: 'clamp(3rem, 5vw, 4rem)',
+              borderRadius: '24px',
+              background: 'rgba(28, 28, 28, 0.8)',
+              backdropFilter: 'blur(20px)',
+              border: '2px solid rgba(239, 68, 68, 0.3)',
+              boxShadow: '0 20px 60px rgba(239, 68, 68, 0.2)',
+              overflow: 'hidden',
+              textAlign: 'center',
+            }}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
+            whileHover={{
+              borderColor: 'rgba(239, 68, 68, 0.5)',
+              boxShadow: '0 25px 70px rgba(239, 68, 68, 0.3)',
+            }}
           >
+            {/* Animated Border Glow 1 - Horizontal Movement */}
             <motion.div
               style={{
-                display: 'inline-block',
-                padding: '0.5rem 1rem',
-                borderRadius: '8px',
-                background: 'rgba(239, 68, 68, 0.1)',
-                border: '1px solid rgba(239, 68, 68, 0.2)',
-                marginBottom: '1.5rem',
-                fontSize: '0.85rem',
-                fontWeight: 600,
-                color: 'var(--primary)',
+                position: 'absolute',
+                top: '-100px',
+                left: '-100px',
+                width: '200px',
+                height: '200px',
+                background: 'radial-gradient(circle, rgba(239, 68, 68, 0.4) 0%, transparent 70%)',
+                filter: 'blur(60px)',
+                pointerEvents: 'none',
+                zIndex: 0,
               }}
-              whileHover={{ scale: 1.05 }}
-            >
-              💼 Let&apos;s Collaborate
-            </motion.div>
+              animate={{
+                x: ['0%', '100%', '100%', '0%', '0%'],
+                y: ['0%', '0%', '100%', '100%', '0%'],
+              }}
+              transition={{
+                duration: 12,
+                repeat: Infinity,
+                ease: 'linear',
+              }}
+            />
 
-            <h2 className="heading-lg" style={{ 
-              marginBottom: '1.5rem',
-              background: 'linear-gradient(135deg, #000000 0%, var(--primary) 50%, #000000 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              textShadow: '0 0 20px rgba(239, 68, 68, 0.3)',
-            }}>
-              Ready to Build Something Amazing?
-            </h2>
-            
-            <p className="body-lg" style={{ color: 'var(--foreground-muted)', marginBottom: '3rem', lineHeight: '1.7' }}>
-              Whether you have a detailed project plan or just an idea, we&apos;d love to hear from you. 
-              Let&apos;s discuss how we can help bring your vision to life with cutting-edge technology and exceptional design.
-            </p>
-            
-            <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Link 
-                  href="/contact" 
-                  className="btn btn-primary btn-lg"
-                  style={{ 
-                    padding: '1.25rem 3rem',
-                    fontSize: '1.05rem',
-                    fontWeight: 600,
-                    boxShadow: '0 10px 30px rgba(239, 68, 68, 0.2)',
-                  }}
-                >
-                  Start Your Project
-                </Link>
+            {/* Animated Border Glow 2 - Opposite Direction */}
+            <motion.div
+              style={{
+                position: 'absolute',
+                bottom: '-100px',
+                right: '-100px',
+                width: '180px',
+                height: '180px',
+                background: 'radial-gradient(circle, rgba(239, 68, 68, 0.35) 0%, transparent 70%)',
+                filter: 'blur(50px)',
+                pointerEvents: 'none',
+                zIndex: 0,
+              }}
+              animate={{
+                x: ['0%', '-100%', '-100%', '0%', '0%'],
+                y: ['0%', '0%', '-100%', '-100%', '0%'],
+              }}
+              transition={{
+                duration: 16,
+                repeat: Infinity,
+                ease: 'linear',
+              }}
+            />
+
+            {/* Corner Glows - Stationary */}
+            <motion.div
+              style={{
+                position: 'absolute',
+                top: '-10%',
+                left: '-10%',
+                width: '30%',
+                height: '30%',
+                background: 'radial-gradient(circle, rgba(239, 68, 68, 0.25) 0%, transparent 70%)',
+                filter: 'blur(40px)',
+                pointerEvents: 'none',
+                zIndex: 0,
+              }}
+              animate={{
+                scale: [1, 1.2, 1],
+                opacity: [0.5, 0.8, 0.5],
+              }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                ease: 'easeInOut',
+              }}
+            />
+
+            <motion.div
+              style={{
+                position: 'absolute',
+                bottom: '-10%',
+                right: '-10%',
+                width: '30%',
+                height: '30%',
+                background: 'radial-gradient(circle, rgba(239, 68, 68, 0.25) 0%, transparent 70%)',
+                filter: 'blur(40px)',
+                pointerEvents: 'none',
+                zIndex: 0,
+              }}
+              animate={{
+                scale: [1, 1.2, 1],
+                opacity: [0.5, 0.8, 0.5],
+              }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                ease: 'easeInOut',
+                delay: 2,
+              }}
+            />
+
+            <div style={{ position: 'relative', zIndex: 1 }}>
+              <motion.div
+                style={{
+                  display: 'inline-block',
+                  padding: '0.5rem 1rem',
+                  borderRadius: '8px',
+                  background: 'rgba(239, 68, 68, 0.15)',
+                  border: '1px solid rgba(239, 68, 68, 0.3)',
+                  marginBottom: '1.5rem',
+                  fontSize: '0.85rem',
+                  fontWeight: 600,
+                  color: 'var(--primary)',
+                }}
+                whileHover={{ scale: 1.05 }}
+              >
+                💼 Let&apos;s Collaborate
               </motion.div>
+
+              <h2 className="heading-lg" style={{ 
+                marginBottom: '1.5rem',
+                background: 'linear-gradient(135deg, #FFFFFF 0%, var(--primary) 50%, #FFFFFF 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+              }}>
+                Ready to Build Something Amazing?
+              </h2>
               
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Link 
-                  href="/work" 
-                  className="btn btn-secondary btn-lg"
-                  style={{ 
-                    padding: '1.25rem 3rem',
-                    fontSize: '1.05rem',
-                    fontWeight: 600,
-                  }}
-                >
-                  View Our Work
-                </Link>
-              </motion.div>
+              <p className="body-lg" style={{ color: 'var(--foreground-muted)', marginBottom: '3rem', lineHeight: '1.7' }}>
+                Whether you have a detailed project plan or just an idea, we&apos;d love to hear from you. 
+                Let&apos;s discuss how we can help bring your vision to life with cutting-edge technology and exceptional design.
+              </p>
+              
+              <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                  <Link 
+                    href="/contact" 
+                    className="btn btn-primary btn-lg"
+                    style={{ 
+                      padding: '1.25rem 3rem',
+                      fontSize: '1.05rem',
+                      fontWeight: 600,
+                      boxShadow: '0 10px 30px rgba(239, 68, 68, 0.3)',
+                    }}
+                  >
+                    Start Your Project
+                  </Link>
+                </motion.div>
+                
+                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                  <Link 
+                    href="/work" 
+                    className="btn btn-secondary btn-lg"
+                    style={{ 
+                      padding: '1.25rem 3rem',
+                      fontSize: '1.05rem',
+                      fontWeight: 600,
+                    }}
+                  >
+                    View Our Work
+                  </Link>
+                </motion.div>
+              </div>
             </div>
           </motion.div>
         </div>
