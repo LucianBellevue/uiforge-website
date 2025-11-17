@@ -127,14 +127,13 @@ function ResultsMetricsSection() {
 
 export default function Home() {
   const services = [
-    { title: 'Custom Websites', description: 'Beautifully designed, fully responsive websites that capture your brand essence and engage your audience.', href: '/services#websites', variant: 'default' as const, buttonStyle: 'ghost' as const },
+    { title: 'Custom Websites', description: 'Premium, fully responsive websites built with Next.js that capture your brand essence and convert visitors into customers.', href: '/services#websites', variant: 'default' as const, buttonStyle: 'ghost' as const },
     { title: 'Web Applications', description: 'Complex, interactive applications built with modern frameworks and best practices for optimal performance.', href: '/services#applications', variant: 'primary' as const, buttonStyle: 'primary' as const, featured: true },
-    { title: 'UI/UX Design', description: 'User-centered design that combines aesthetics with functionality for exceptional user experiences.', href: '/services#design', variant: 'default' as const, buttonStyle: 'ghost' as const },
   ];
 
   const comparisonData = [
     { feature: 'Performance', uiforge: 'Blazing-fast Next.js sites (90+ Lighthouse score)', competitors: 'Bloated, plugin-heavy code' },
-    { feature: 'Customization', uiforge: 'Fully tailored UI/UX design', competitors: 'Limited templates' },
+    { feature: 'Customization', uiforge: 'Fully custom-coded solutions', competitors: 'Limited templates' },
     { feature: 'Ownership', uiforge: '100% code ownership', competitors: 'Platform-locked' },
     { feature: 'SEO', uiforge: 'Clean semantic HTML + custom meta control', competitors: 'Generic SEO tools' },
     { feature: 'Support', uiforge: 'Dedicated developer & designer', competitors: 'Customer service chatbot' },
@@ -143,7 +142,7 @@ export default function Home() {
 
   const processSteps = [
     { number: 1, title: 'Discover', description: 'Free consultation to define goals, understand your vision, and map out the perfect strategy.', icon: '🔍', color: 'rgba(239, 68, 68, 0.2)' },
-    { number: 2, title: 'Design', description: 'Figma prototypes + brand strategy to visualize your project before a single line of code.', icon: '🎨', color: 'rgba(239, 68, 68, 0.3)' },
+    { number: 2, title: 'Design', description: 'Wireframes and prototypes to visualize your project structure and user flow before development.', icon: '🎨', color: 'rgba(239, 68, 68, 0.3)' },
     { number: 3, title: 'Develop', description: 'Modern code, smooth animations, and CMS integration built with cutting-edge technology.', icon: '⚡', color: 'rgba(239, 68, 68, 0.4)' },
     { number: 4, title: 'Deliver', description: 'Launch, SEO optimization, analytics setup, and ongoing support to ensure success.', icon: '🚀', color: 'rgba(239, 68, 68, 0.5)' },
   ];

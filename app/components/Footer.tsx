@@ -15,20 +15,16 @@ export function Footer() {
     Company: [
       { href: "/about", label: "About" },
       { href: "/work", label: "Work" },
-      { href: "/blog", label: "Blog" },
       { href: "/contact", label: "Contact" },
     ],
     Services: [
       { href: "/services#websites", label: "Custom Websites" },
       { href: "/services#applications", label: "Web Applications" },
-      { href: "/services#design", label: "UI/UX Design" },
       { href: "/pricing", label: "Pricing" },
     ],
     Resources: [
-      { href: "/blog", label: "Blog" },
-      { href: "/components", label: "Components" },
-      { href: "#", label: "Documentation" },
       { href: "#", label: "Support" },
+      { href: "/blog", label: "Blog" },
     ],
   };
 
@@ -40,9 +36,7 @@ export function Footer() {
 
   const socialLinks = [
     { href: "https://github.com", label: "GitHub", icon: <FaGithub /> },
-    { href: "https://twitter.com", label: "Twitter", icon: <FaTwitter /> },
     { href: "https://linkedin.com", label: "LinkedIn", icon: <FaLinkedin /> },
-    { href: "https://dribbble.com", label: "Dribbble", icon: <FaDribbble /> },
   ];
 
   const containerVariants = {
