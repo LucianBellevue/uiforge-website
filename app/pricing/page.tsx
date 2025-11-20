@@ -80,19 +80,6 @@ export default function Pricing() {
         <div className="container-custom" style={{ position: 'relative', zIndex: 1 }}>
           <div style={{ textAlign: 'center', maxWidth: '900px', margin: '0 auto' }}>
             <ScrollReveal direction="up">
-              <div style={{ 
-                display: 'inline-block',
-                padding: '0.5rem 1.5rem',
-                borderRadius: '8px',
-                background: 'rgba(239, 68, 68, 0.1)',
-                border: '1px solid rgba(239, 68, 68, 0.3)',
-                marginBottom: '2rem',
-                fontSize: '0.95rem',
-                fontWeight: 600,
-                color: 'var(--primary)',
-              }}>
-                🏷️ PRICING
-              </div>
               <h1 className="heading-xl" style={{ 
                 fontSize: 'clamp(2.5rem, 6vw, 4rem)', 
                 lineHeight: '1.2', 
@@ -103,12 +90,12 @@ export default function Pricing() {
                 backgroundClip: 'text',
                 textShadow: '0 0 40px rgba(239, 68, 68, 0.5), 0 0 80px rgba(239, 68, 68, 0.3)'
               }}>
-                High-performance websites built for businesses that want more than a template.
+                Custom Next.js websites that load fast, rank higher, and convert more.
               </h1>
             </ScrollReveal>
             <ScrollReveal direction="up" delay={0.2}>
               <p className="body-lg" style={{ color: 'var(--foreground-muted)', marginTop: '1.5rem', fontSize: '1.125rem', lineHeight: '1.8', maxWidth: '750px', margin: '0 auto' }}>
-                We offer transparent, competitive pricing for early-stage brands, service businesses, and growing companies that need custom, scalable, and fast websites.
+                Transparent pricing for SEO-friendly, high-converting business websites built with Next.js, Tailwind, and a modern CMS — optimized for performance, scalability, and real revenue growth.
               </p>
             </ScrollReveal>
           </div>
@@ -121,6 +108,23 @@ export default function Pricing() {
           <ParticleField />
         </div>
         <div className="container-custom" style={{ position: 'relative', zIndex: 1 }}>
+          <ScrollReveal direction="up">
+            <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+              <div style={{ 
+                display: 'inline-block',
+                padding: '0.5rem 1.5rem',
+                borderRadius: '8px',
+                background: 'rgba(239, 68, 68, 0.1)',
+                border: '1px solid rgba(239, 68, 68, 0.3)',
+                fontSize: '0.95rem',
+                fontWeight: 600,
+                color: 'var(--primary)',
+              }}>
+                🏷️ PRICING
+              </div>
+            </div>
+          </ScrollReveal>
+
           <StaggerContainer staggerDelay={0.2}>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: '2.5rem', maxWidth: '1300px', margin: '0 auto' }}>
               {pricingTiers.map((tier) => (
@@ -307,20 +311,6 @@ export default function Pricing() {
         <div className="container-custom" style={{ position: 'relative', zIndex: 1 }}>
           <ScrollReveal direction="up">
             <div style={{ textAlign: 'center', marginBottom: '4rem', overflow: 'visible', padding: '2rem 1rem' }}>
-              <div style={{ 
-                display: 'inline-block',
-                padding: '0.5rem 1.5rem',
-                borderRadius: '8px',
-                background: 'rgba(0, 0, 0, 0.4)',
-                border: '1px solid rgba(0, 0, 0, 0.6)',
-                marginBottom: '1.5rem',
-                fontSize: '0.95rem',
-                fontWeight: 600,
-                color: 'white',
-                backdropFilter: 'blur(10px)'
-              }}>
-                🔁 MAINTENANCE PLANS
-              </div>
               <h2 className="heading-lg" style={{ 
                 marginBottom: '1.5rem',
                 color: '#1C1C1C',
@@ -589,19 +579,6 @@ export default function Pricing() {
         <div className="container-custom" style={{ position: 'relative', zIndex: 1 }}>
           <ScrollReveal direction="up">
             <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-              <div style={{ 
-                display: 'inline-block',
-                padding: '0.5rem 1.5rem',
-                borderRadius: '8px',
-                background: 'rgba(239, 68, 68, 0.1)',
-                border: '1px solid rgba(239, 68, 68, 0.3)',
-                marginBottom: '1rem',
-                fontSize: '0.95rem',
-                fontWeight: 600,
-                color: 'var(--primary)',
-              }}>
-                🔍 WHY CHOOSE UIFORGE
-              </div>
               <h2 className="heading-lg" style={{ 
                 marginBottom: '1rem',
                 background: 'linear-gradient(135deg, #000000 0%, var(--primary) 50%, #000000 100%)',
@@ -754,19 +731,6 @@ export default function Pricing() {
               paddingTop: '3rem',
               borderTop: '1px solid rgba(239, 68, 68, 0.1)'
             }}>
-              <div style={{ 
-                display: 'inline-block',
-                padding: '0.5rem 1.5rem',
-                borderRadius: '8px',
-                background: 'rgba(239, 68, 68, 0.1)',
-                border: '1px solid rgba(239, 68, 68, 0.3)',
-                marginBottom: '1rem',
-                fontSize: '0.95rem',
-                fontWeight: 600,
-                color: 'var(--primary)',
-              }}>
-                🧠 COMPARISON TABLE
-              </div>
               <h3 className="heading-md" style={{ 
                 background: 'linear-gradient(135deg, #000000 0%, var(--primary) 50%, #000000 100%)',
                 WebkitBackgroundClip: 'text',
@@ -979,19 +943,6 @@ export default function Pricing() {
         <div className="container-custom" style={{ position: 'relative', zIndex: 1 }}>
           <ScrollReveal direction="up">
             <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-              <div style={{ 
-                display: 'inline-block',
-                padding: '0.5rem 1.5rem',
-                borderRadius: '8px',
-                background: 'rgba(239, 68, 68, 0.1)',
-                border: '1px solid rgba(239, 68, 68, 0.3)',
-                marginBottom: '1rem',
-                fontSize: '0.95rem',
-                fontWeight: 600,
-                color: 'var(--primary)',
-              }}>
-                💬 FAQs
-              </div>
               <h2 className="heading-lg" style={{ 
                 background: 'linear-gradient(135deg, #000000 0%, var(--primary) 50%, #000000 100%)',
                 WebkitBackgroundClip: 'text',
@@ -1103,19 +1054,6 @@ export default function Pricing() {
         
         <div className="container-custom" style={{ textAlign: 'center', position: 'relative', zIndex: 10 }}>
           <ScrollReveal direction="scale">
-            <div style={{ 
-              display: 'inline-block',
-              padding: '0.5rem 1.5rem',
-              borderRadius: '8px',
-              background: 'rgba(239, 68, 68, 0.15)',
-              border: '1px solid rgba(239, 68, 68, 0.4)',
-              marginBottom: '2rem',
-              fontSize: '0.95rem',
-              fontWeight: 600,
-              color: 'white',
-            }}>
-              🟧 READY TO START?
-            </div>
             <h2 className="heading-xl" style={{ 
               marginBottom: '2rem',
               color: 'white',
