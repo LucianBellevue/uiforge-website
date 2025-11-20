@@ -1,16 +1,68 @@
 "use client";
 
 import Link from "next/link";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { 
   ScrollReveal, 
   ParticleField, 
   AnimatedGradient,
   StaggerContainer,
-  StaggerItem 
+  StaggerItem,
+  SectionDivider,
 } from "@/app/components/ui";
 
+const AddonsPattern = () => (
+  <>
+    <div className="addons-pattern">
+      {[0, 1, 2, 3].map((line) => (
+        <div key={line} className={`addons-line line-${line}`}>
+          <span className="addons-dot" />
+        </div>
+      ))}
+    </div>
+    <style jsx>{`
+      .addons-pattern {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        pointer-events: none;
+        opacity: 0.6;
+      }
+      .addons-line {
+        position: absolute;
+        width: 140%;
+        height: 2px;
+        background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(239,68,68,0.35) 50%, rgba(255,255,255,0) 100%);
+        filter: blur(0.3px);
+      }
+      .addons-line.line-0 { top: 15%; left: -20%; transform: rotate(-6deg); }
+      .addons-line.line-1 { top: 40%; left: -10%; transform: rotate(4deg); }
+      .addons-line.line-2 { top: 65%; left: -15%; transform: rotate(-2deg); }
+      .addons-line.line-3 { top: 85%; left: -5%; transform: rotate(7deg); }
+      .addons-dot {
+        position: absolute;
+        top: -4px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: rgba(239,68,68,0.9);
+        box-shadow: 0 0 12px rgba(239,68,68,0.9), 0 0 24px rgba(239,68,68,0.5);
+        animation: addons-dot-move 6s linear infinite;
+      }
+      .addons-line.line-1 .addons-dot { animation-duration: 7.5s; }
+      .addons-line.line-2 .addons-dot { animation-duration: 5.5s; }
+      .addons-line.line-3 .addons-dot { animation-duration: 8s; }
+      @keyframes addons-dot-move {
+        0% { left: -5%; }
+        100% { left: 105%; }
+      }
+    `}</style>
+  </>
+);
+
 export default function Pricing() {
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
   const pricingTiers = [
     {
       name: "Starter Site",
@@ -71,12 +123,21 @@ export default function Pricing() {
     }
   ];
 
+  const addOnItems = [
+    { name: 'Logo + Brand Kit (3 concepts)', price: '$300 – $800', note: 'Rapid visual identity refresh' },
+    { name: 'Additional Page', price: '$150 – $300', note: 'Fully custom responsive page' },
+    { name: 'Copywriting (per page)', price: '$150', note: 'Conversion-focused copy' },
+    { name: 'Custom API integration', price: '$400 – $1,200', note: 'CRMs, booking tools, payment gateways' },
+    { name: 'Blog migration (10–50 posts)', price: '$200 – $600', note: 'Structured content import + redirects' },
+    { name: 'Analytics dashboard (custom)', price: '$300 – $600', note: 'KPIs in a single view' },
+    { name: 'Speed Optimization Overhaul', price: '$300 – $800', note: 'Core Web Vitals improvements' },
+  ];
+
   return (
     <div>
       {/* Hero Section */}
       <section className="section-padding" style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', position: 'relative', background: 'var(--background-deep)', overflow: 'hidden' }}>
         <ParticleField />
-        <AnimatedGradient />
         <div className="container-custom" style={{ position: 'relative', zIndex: 1 }}>
           <div style={{ textAlign: 'center', maxWidth: '900px', margin: '0 auto' }}>
             <ScrollReveal direction="up">
@@ -103,7 +164,8 @@ export default function Pricing() {
       </section>
 
       {/* Pricing Tiers */}
-      <section className="section-padding" style={{ background: 'var(--background-charcoal)', position: 'relative' }}>
+      <section className="section-padding" style={{ background: 'var(--background-charcoal)', position: 'relative', overflow: 'visible', paddingTop: 'clamp(120px, 15vw, 180px)' }}>
+        <SectionDivider variant="wave" position="top" color="var(--background-deep)" />
         <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '400px', overflow: 'hidden', zIndex: 0, pointerEvents: 'none' }}>
           <ParticleField />
         </div>
@@ -280,10 +342,12 @@ export default function Pricing() {
 
       {/* Maintenance Plans */}
       <section className="section-padding" style={{ 
-        background: 'linear-gradient(135deg, #EF4444 0%, #DC2626 50%, #EF4444 100%)', 
+        background: 'var(--primary)',
         position: 'relative',
-        overflow: 'hidden'
+        overflow: 'hidden',
+        paddingTop: 'clamp(120px, 15vw, 180px)'
       }}>
+        <SectionDivider variant="liquid" position="top" color="var(--background-charcoal)" flip={true} />
         {/* Dark particles overlay */}
         <div style={{ 
           position: 'absolute', 
@@ -299,14 +363,6 @@ export default function Pricing() {
         }}>
           <ParticleField />
         </div>
-        {/* Dark overlay for better contrast */}
-        <div style={{ 
-          position: 'absolute', 
-          inset: 0, 
-          background: 'radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.3) 100%)',
-          pointerEvents: 'none',
-          zIndex: 0
-        }} />
         
         <div className="container-custom" style={{ position: 'relative', zIndex: 1 }}>
           <ScrollReveal direction="up">
@@ -493,9 +549,42 @@ export default function Pricing() {
       </section>
 
       {/* Add-ons */}
-      <section className="section-padding" style={{ position: 'relative' }}>
-        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '400px', overflow: 'hidden', zIndex: 0, pointerEvents: 'none' }}>
-          <AnimatedGradient />
+      <section className="section-padding" style={{ position: 'relative', overflow: 'visible', paddingTop: 'clamp(120px, 15vw, 180px)' }}>
+        {/* Wave wrapper with soft dark blend under the divider for smooth transition */}
+        <div
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            height: '220px',
+            overflow: 'hidden',
+            zIndex: 0,
+            pointerEvents: 'none',
+          }}
+        >
+          {/* Soft dark blend under the wave to avoid a hard line */}
+          <div
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              height: '140px',
+              background: 'linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.0) 70%)',
+            }}
+          />
+          {/* Wave divider on top, using primary color so it stays in sync */}
+          <div
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+            }}
+          >
+            <SectionDivider variant="liquid" position="top" color="var(--primary)" />
+          </div>
         </div>
         <div className="container-custom" style={{ position: 'relative', zIndex: 1 }}>
           <ScrollReveal direction="up">
@@ -522,234 +611,186 @@ export default function Pricing() {
               }}>
                 Extend Your Site
               </h2>
+              <p className="body-md" style={{ color: 'var(--foreground-muted)', marginTop: '0.75rem' }}>
+                Mix-and-match add-ons to layer in branding, content, integrations, and performance boosts.
+              </p>
             </div>
           </ScrollReveal>
-          
-          <StaggerContainer staggerDelay={0.1}>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', maxWidth: '1200px', margin: '0 auto' }}>
-              {[
-                { name: 'Logo + Brand Kit (3 concepts)', price: '$300 – $800' },
-                { name: 'Additional Page', price: '$150 – $300' },
-                { name: 'Copywriting (per page)', price: '$150' },
-                { name: 'Custom API integration', price: '$400 – $1,200' },
-                { name: 'Blog migration (10–50 posts)', price: '$200 – $600' },
-                { name: 'Analytics dashboard (custom)', price: '$300 – $600' },
-                { name: 'Speed Optimization Overhaul', price: '$300 – $800' },
-              ].map((addon) => (
-                <StaggerItem key={addon.name}>
-                  <motion.div 
-                    className="glass"
-                    style={{ 
-                      padding: '2rem',
-                      borderRadius: '1rem',
-                      height: '100%',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      justifyContent: 'space-between',
-                      alignItems: 'flex-start'
-                    }}
-                    whileHover={{ y: -4, boxShadow: '0 10px 40px rgba(239, 68, 68, 0.15)' }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <h3 className="heading-sm" style={{ marginBottom: '1.5rem', color: 'var(--foreground)', fontSize: '1.125rem' }}>
-                      {addon.name}
-                    </h3>
-                    <div className="body-lg" style={{ 
-                      fontWeight: '700',
-                      fontSize: '1.5rem',
-                      background: 'linear-gradient(135deg, var(--primary), #F87171)',
-                      WebkitBackgroundClip: 'text',
-                      WebkitTextFillColor: 'transparent'
-                    }}>
-                      {addon.price}
+
+          <ScrollReveal direction="up" delay={0.1}>
+            <motion.div
+              style={{
+                position: 'relative',
+                padding: '3.5rem 3rem',
+                borderRadius: '1.5rem',
+                border: '1px solid rgba(239, 68, 68, 0.4)',
+                background: 'rgba(10, 10, 10, 0.85)',
+                boxShadow: '0 15px 60px rgba(239, 68, 68, 0.18)',
+                overflow: 'hidden',
+              }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <AddonsPattern />
+              <div style={{ position: 'relative', zIndex: 1 }}>
+                <div style={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                  marginBottom: '1.5rem',
+                  color: 'var(--primary)'
+                }}>
+                  <span style={{ fontWeight: 700, letterSpacing: '0.2em', fontSize: '0.85rem' }}>SERVICE</span>
+                  <span style={{ fontWeight: 700, letterSpacing: '0.2em', fontSize: '0.85rem' }}>INVESTMENT</span>
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                  {addOnItems.map((item) => (
+                    <div
+                      key={item.name}
+                      style={{
+                        padding: '1.25rem 1.5rem',
+                        borderRadius: '1rem',
+                        background: 'rgba(255,255,255,0.015)',
+                        border: '1px solid rgba(255,255,255,0.05)',
+                        boxShadow: 'inset 0 0 20px rgba(0,0,0,0.25)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '1rem',
+                        justifyContent: 'space-between',
+                        position: 'relative',
+                        overflow: 'hidden',
+                      }}
+                    >
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                          <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'var(--primary)', boxShadow: '0 0 12px rgba(239,68,68,0.9)' }} />
+                          <p className="body-lg" style={{ margin: 0, color: 'var(--foreground)', fontWeight: 600 }}>
+                            {item.name}
+                          </p>
+                        </div>
+                        <span className="body-sm" style={{ color: 'var(--foreground-muted)', paddingLeft: '1.35rem' }}>
+                          {item.note}
+                        </span>
+                      </div>
+                      <div style={{ textAlign: 'right' }}>
+                        <p
+                          className="heading-sm"
+                          style={{
+                            margin: 0,
+                            color: 'var(--primary)',
+                            fontWeight: 800,
+                            fontSize: '1.35rem',
+                          }}
+                        >
+                          {item.price}
+                        </p>
+                      </div>
                     </div>
-                  </motion.div>
-                </StaggerItem>
-              ))}
-            </div>
-          </StaggerContainer>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* Why Choose UIForge - Comparison */}
-      <section className="section-padding" style={{ position: 'relative' }}>
-        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '400px', overflow: 'hidden', zIndex: 0, pointerEvents: 'none' }}>
-          <AnimatedGradient />
+      <section className="section-padding" style={{ position: 'relative', overflow: 'visible', paddingTop: 'clamp(120px, 15vw, 180px)' }}>
+        <SectionDivider variant="wave" position="top" color="var(--background-deep)" />
+        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '100%', overflow: 'hidden', zIndex: 0, pointerEvents: 'none' }}>
+          <ParticleField />
         </div>
         <div className="container-custom" style={{ position: 'relative', zIndex: 1 }}>
           <ScrollReveal direction="up">
-            <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+            <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
               <h2 className="heading-lg" style={{ 
-                marginBottom: '1rem',
+                marginBottom: '0.75rem',
                 background: 'linear-gradient(135deg, #000000 0%, var(--primary) 50%, #000000 100%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text',
                 textShadow: '0 0 40px rgba(239, 68, 68, 0.5), 0 0 80px rgba(239, 68, 68, 0.3)'
               }}>
-                Why Choose UIForge Instead of Wix / WordPress / Shopify?
+                Why UIForge Wins
               </h2>
+              <p className="body-lg" style={{ color: 'var(--foreground-muted)', maxWidth: '720px', margin: '0 auto' }}>
+                Built-to-perform code, total ownership, and an obsessive focus on conversion—something no template stack can touch.
+              </p>
             </div>
           </ScrollReveal>
 
-          {/* Reasons Grid */}
-          <StaggerContainer staggerDelay={0.1}>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '2rem', marginBottom: '5rem' }}>
+          {/* Chart Hero */}
+          <ScrollReveal direction="up">
+            <div style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
+              <span style={{ color: 'var(--primary)', fontWeight: 700, letterSpacing: '0.15em', fontSize: '0.85rem' }}>HEAD-TO-HEAD</span>
+            </div>
+          </ScrollReveal>
+
+          {/* Impact statements */}
+          <StaggerContainer staggerDelay={0.12}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', marginTop: '2.5rem' }}>
               {[
                 {
-                  number: '1',
-                  title: 'Performance that converts',
-                  description: 'Wix and WordPress templates often load in 2–6 seconds.',
-                  highlight: '0.6–1.2 seconds on average',
-                  detail: '— thanks to Next.js + server components.'
+                  label: 'Speed',
+                  headline: '0.6s launch-ready sites',
+                  body: 'Server-rendered Next.js stacks tuned for Core Web Vitals—no multi-second drag from plugins or page builders.',
                 },
                 {
-                  number: '2',
-                  title: 'You get full code ownership',
-                  description: 'No vendor lock-in. No subscription traps. No bloat.',
-                  highlight: null,
-                  detail: null
+                  label: 'Control',
+                  headline: 'You own every line of code',
+                  body: 'No licenses, no lock-in, no feature paywalls. Fork it, scale it, connect it to anything you need—forever.',
                 },
                 {
-                  number: '3',
-                  title: 'SEO that actually ranks',
-                  description: 'Template builders produce messy, bloated HTML.',
-                  highlight: 'Semantic • Accessible • Optimized for Google Core Web Vitals',
-                  detail: null
+                  label: 'Revenue impact',
+                  headline: 'Designed to convert',
+                  body: 'Conversion-focused architecture, CMS flexibility, and performance tracking baked in so marketing moves faster.',
                 },
-                {
-                  number: '4',
-                  title: 'Scalable & flexible',
-                  description: 'Add features, integrate APIs, connect CRMs, expand the CMS — anytime.',
-                  highlight: null,
-                  detail: null
-                },
-                {
-                  number: '5',
-                  title: 'Built for your unique business',
-                  description: 'No cookie-cutter template. Every UI is hand-crafted with Tailwind.',
-                  highlight: null,
-                  detail: null
-                },
-                {
-                  number: '6',
-                  title: 'Better long-term cost',
-                  description: 'Builder tools require: $40–$100/mo subscriptions, paid plugins, theme limits, template redesign costs.',
-                  highlight: 'Your UIForge site is a one-time build with full control.',
-                  detail: null
-                },
-              ].map((reason) => (
-                <StaggerItem key={reason.number}>
+              ].map((tile, idx) => (
+                <StaggerItem key={tile.label}>
                   <motion.div
                     className="glass"
                     style={{
-                      padding: '2.5rem',
+                      padding: '2.25rem',
                       borderRadius: '1.25rem',
                       height: '100%',
                       display: 'flex',
                       flexDirection: 'column',
-                      position: 'relative',
-                      overflow: 'hidden'
+                      gap: '0.75rem',
                     }}
                     whileHover={{ y: -4, boxShadow: '0 15px 50px rgba(239, 68, 68, 0.15)' }}
-                    transition={{ duration: 0.3 }}
                   >
-                    {/* Number Badge */}
-                    <div style={{
-                      position: 'absolute',
-                      top: '20px',
-                      right: '20px',
-                      width: '48px',
-                      height: '48px',
-                      borderRadius: '50%',
-                      background: 'linear-gradient(135deg, var(--primary), #F87171)',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      fontWeight: '700',
-                      fontSize: '1.25rem',
-                      color: 'white',
-                      boxShadow: '0 0 20px rgba(239, 68, 68, 0.4)'
-                    }}>
-                      {reason.number}
-                    </div>
-
-                    <h3 className="heading-md" style={{ 
-                      color: 'var(--primary)', 
-                      marginBottom: '1rem',
-                      fontSize: '1.5rem',
-                      fontWeight: 700,
-                      paddingRight: '60px'
-                    }}>
-                      {reason.title}
-                    </h3>
-
-                    <p className="body-md" style={{ 
-                      color: 'var(--foreground-muted)', 
-                      lineHeight: '1.7',
-                      marginBottom: reason.highlight ? '1.25rem' : '0'
-                    }}>
-                      {reason.description}
-                    </p>
-
-                    {reason.highlight && (
-                      <div style={{
-                        padding: '1rem 1.25rem',
-                        background: 'linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(239, 68, 68, 0.05) 100%)',
-                        borderLeft: '3px solid var(--primary)',
-                        borderRadius: '0.5rem',
-                        marginTop: 'auto'
-                      }}>
-                        <p className="body-md" style={{ 
-                          color: 'var(--foreground)', 
-                          fontWeight: 600,
-                          lineHeight: '1.6'
-                        }}>
-                          {reason.highlight}
-                        </p>
-                        {reason.detail && (
-                          <p className="body-sm" style={{ 
-                            color: 'var(--foreground-muted)',
-                            marginTop: '0.25rem'
-                          }}>
-                            {reason.detail}
-                          </p>
-                        )}
-                      </div>
-                    )}
+                    <span style={{ color: 'var(--primary)', fontWeight: 600, letterSpacing: '0.2em', fontSize: '0.75rem' }}>{tile.label}</span>
+                    <h3 className="heading-md" style={{ color: 'var(--foreground)', margin: 0 }}>{tile.headline}</h3>
+                    <p className="body-md" style={{ color: 'var(--foreground-muted)', lineHeight: '1.7', margin: 0 }}>{tile.body}</p>
                   </motion.div>
                 </StaggerItem>
               ))}
             </div>
           </StaggerContainer>
 
-          {/* Comparison Table */}
-          <ScrollReveal direction="up">
-            <div style={{ 
-              textAlign: 'center', 
-              marginBottom: '3rem',
-              paddingTop: '3rem',
-              borderTop: '1px solid rgba(239, 68, 68, 0.1)'
-            }}>
-              <h3 className="heading-md" style={{ 
-                background: 'linear-gradient(135deg, #000000 0%, var(--primary) 50%, #000000 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-              }}>
-                See How We Stack Up
-              </h3>
-            </div>
-          </ScrollReveal>
-
-          <ScrollReveal direction="up" delay={0.2}>
+          {/* Chart Hero */}
+          <ScrollReveal direction="up" delay={0.1}>
             <div className="glass" style={{ 
-              borderRadius: '1.5rem', 
-              padding: '2rem', 
+              borderRadius: '1.75rem', 
+              padding: '2.5rem', 
               overflowX: 'auto',
-              maxWidth: '1100px',
-              margin: '0 auto'
+              maxWidth: '1150px',
+              margin: '0 auto 2rem',
+              marginTop: '1.75rem',
+              boxShadow: '0 25px 80px rgba(0,0,0,0.35)'
             }}>
+              <div style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
+                <h3 className="heading-md" style={{ 
+                  margin: 0,
+                  background: 'linear-gradient(135deg, #000000 0%, var(--primary) 50%, #000000 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text'
+                }}>
+                  How We Stack Up
+                </h3>
+              </div>
               <table style={{ 
                 width: '100%', 
                 borderCollapse: 'collapse',
@@ -936,13 +977,14 @@ export default function Pricing() {
       </section>
 
       {/* FAQ */}
-      <section className="section-padding" style={{ background: 'var(--background-charcoal)', position: 'relative' }}>
+      <section className="section-padding" style={{ background: 'var(--background-charcoal)', position: 'relative', overflow: 'visible', paddingTop: 'clamp(120px, 15vw, 180px)' }}>
+        <SectionDivider variant="liquid" position="top" color="var(--background-deep)" flip={true} />
         <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '400px', overflow: 'hidden', zIndex: 0, pointerEvents: 'none' }}>
           <ParticleField />
         </div>
         <div className="container-custom" style={{ position: 'relative', zIndex: 1 }}>
           <ScrollReveal direction="up">
-            <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+            <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
               <h2 className="heading-lg" style={{ 
                 background: 'linear-gradient(135deg, #000000 0%, var(--primary) 50%, #000000 100%)',
                 WebkitBackgroundClip: 'text',
@@ -952,85 +994,170 @@ export default function Pricing() {
               }}>
                 Frequently Asked Questions
               </h2>
+              <p className="body-md" style={{ color: 'var(--foreground-muted)', maxWidth: '620px', margin: '0.5rem auto 0' }}>
+                Answers to the most common questions about timelines, scope, pricing, and ongoing support.
+              </p>
             </div>
           </ScrollReveal>
-          
-          <StaggerContainer staggerDelay={0.1}>
-            <div style={{ maxWidth: '900px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '2rem' }}>
+
+          <StaggerContainer staggerDelay={0.08}>
+            <div style={{ maxWidth: '820px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
               {[
                 {
                   question: 'Do you require a deposit?',
-                  answer: 'Yes — 50% upfront, 50% on completion.'
+                  answer: 'Yes — projects start with a 50% deposit and 50% on completion. For larger builds, we can split this into milestones.'
                 },
                 {
-                  question: 'Do you offer design?',
-                  answer: 'We build custom layouts but do not offer full Figma/UX design packages. If you have designs, we build them. If not, we create clean functional layouts.'
+                  question: 'What exactly is included in the price?',
+                  answer: 'You get a custom Next.js site (no templates), responsive layouts, basic SEO setup, analytics, CMS integration, and deployment to production. Any add-ons or maintenance plans are quoted separately.'
                 },
                 {
                   question: 'How long does a project take?',
-                  answer: 'Starter: 1–2 weeks\nGrowth: 4–6 weeks\nPremium: 6–8 weeks',
+                  answer: 'Starter: 1–2 weeks\nGrowth: 4–6 weeks\nPremium: 6–8 weeks (depending on complexity and approvals).',
                   isList: true
                 },
                 {
-                  question: 'Can I upgrade later?',
-                  answer: 'Yes — you can add pages, components, or migrate to the Premium plan anytime.'
+                  question: 'Do you offer design as well as development?',
+                  answer: 'We create clean, conversion-focused layouts but do not sell full-scale UX/Figma packages. If you already have designs, we implement them. If not, we design directly in code with modern UI patterns.'
                 },
-              ].map((faq, index) => (
-                <StaggerItem key={index}>
-                  <motion.div 
-                    className="glass"
-                    style={{ 
-                      padding: '2.5rem',
-                      borderRadius: '1.25rem',
-                      height: '100%',
-                      display: 'flex',
-                      flexDirection: 'column'
-                    }}
-                    whileHover={{ y: -4, boxShadow: '0 15px 50px rgba(239, 68, 68, 0.15)' }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <h3 className="heading-sm" style={{ 
-                      marginBottom: '1.25rem',
-                      color: 'var(--primary)',
-                      fontSize: '1.25rem',
-                      fontWeight: 700,
-                      display: 'flex',
-                      alignItems: 'flex-start',
-                      gap: '0.75rem'
-                    }}>
-                      <span style={{ flexShrink: 0, fontSize: '1.5rem' }}>Q:</span>
-                      <span>{faq.question}</span>
-                    </h3>
-                    {faq.isList ? (
-                      <div style={{ 
-                        color: 'var(--foreground)',
-                        lineHeight: '1.8',
-                        paddingLeft: '2.25rem'
-                      }}>
-                        {faq.answer.split('\n').map((line, i) => (
-                          <p key={i} className="body-md" style={{ 
-                            marginBottom: i < faq.answer.split('\n').length - 1 ? '0.5rem' : '0',
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: '0.5rem'
-                          }}>
-                            <span style={{ color: 'var(--primary)', fontWeight: 'bold' }}>•</span>
-                            {line}
+                {
+                  question: 'What happens after launch?',
+                  answer: 'You own the code and the infrastructure. If you choose a maintenance plan, we handle updates, monitoring, backups, performance optimization, and minor changes each month.'
+                },
+                {
+                  question: 'Can I upgrade or add features later?',
+                  answer: 'Yes — you can add pages, components, integrations, or upgrade from Starter to Growth or Premium later. We scope those as separate mini-projects or as part of a maintenance plan.'
+                },
+                {
+                  question: 'Do you work with existing sites or only new builds?',
+                  answer: 'We can modernize or fully rebuild an existing site if it makes sense technically. In many cases, migrating to a fresh Next.js codebase is faster and more maintainable long term.'
+                },
+              ].map((faq, index) => {
+                const isOpen = openFaqIndex === index;
+                return (
+                  <StaggerItem key={faq.question}>
+                    <motion.div
+                      style={{
+                        borderRadius: '1rem',
+                        border: isOpen ? '1px solid rgba(239, 68, 68, 0.9)' : '1px solid rgba(239, 68, 68, 0.4)',
+                        boxShadow: isOpen
+                          ? '0 0 30px rgba(239, 68, 68, 0.4)'
+                          : '0 0 18px rgba(239, 68, 68, 0.18)',
+                        background: 'rgba(10,10,10,0.85)',
+                        backdropFilter: 'blur(18px)',
+                        overflow: 'hidden',
+                        cursor: 'pointer',
+                        transition: 'box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease',
+                      }}
+                      whileHover={{ y: -2, boxShadow: '0 0 40px rgba(239, 68, 68, 0.45)' }}
+                      onClick={() => setOpenFaqIndex(isOpen ? null : index)}
+                    >
+                      <div
+                        style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'space-between',
+                          gap: '1rem',
+                          padding: '1.25rem 1.5rem',
+                        }}
+                      >
+                        <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
+                          <span
+                            style={{
+                              flexShrink: 0,
+                              fontSize: '1.1rem',
+                              fontWeight: 700,
+                              color: 'var(--primary)',
+                            }}
+                          >
+                            Q
+                          </span>
+                          <p
+                            className="body-md"
+                            style={{
+                              margin: 0,
+                              color: 'var(--foreground)',
+                              fontWeight: 600,
+                            }}
+                          >
+                            {faq.question}
                           </p>
-                        ))}
+                        </div>
+                        <motion.span
+                          style={{
+                            fontSize: '1.4rem',
+                            color: 'var(--primary)',
+                            flexShrink: 0,
+                          }}
+                          animate={{ rotate: isOpen ? 45 : 0 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          +
+                        </motion.span>
                       </div>
-                    ) : (
-                      <p className="body-md" style={{ 
-                        color: 'var(--foreground)',
-                        lineHeight: '1.8',
-                        paddingLeft: '2.25rem'
-                      }}>
-                        {faq.answer}
-                      </p>
-                    )}
-                  </motion.div>
-                </StaggerItem>
-              ))}
+
+                      <motion.div
+                        initial={false}
+                        animate={{
+                          height: isOpen ? 'auto' : 0,
+                          opacity: isOpen ? 1 : 0,
+                        }}
+                        transition={{ duration: 0.25, ease: 'easeInOut' }}
+                        style={{
+                          overflow: 'hidden',
+                          borderTop: '1px solid rgba(239, 68, 68, 0.25)',
+                          background: 'rgba(0,0,0,0.7)',
+                        }}
+                      >
+                        <div style={{ padding: '1.25rem 1.75rem 1.5rem' }}>
+                          {faq.isList ? (
+                            <div
+                              style={{
+                                color: 'var(--foreground)',
+                                lineHeight: '1.8',
+                              }}
+                            >
+                              {faq.answer.split('\n').map((line, i) => (
+                                <p
+                                  key={i}
+                                  className="body-md"
+                                  style={{
+                                    marginBottom:
+                                      i < faq.answer.split('\\n').length - 1 ? '0.35rem' : 0,
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    gap: '0.5rem',
+                                  }}
+                                >
+                                  <span
+                                    style={{
+                                      color: 'var(--primary)',
+                                      fontWeight: 'bold',
+                                    }}
+                                  >
+                                    •
+                                  </span>
+                                  {line}
+                                </p>
+                              ))}
+                            </div>
+                          ) : (
+                            <p
+                              className="body-md"
+                              style={{
+                                color: 'var(--foreground)',
+                                lineHeight: '1.8',
+                              }}
+                            >
+                              {faq.answer}
+                            </p>
+                          )}
+                        </div>
+                      </motion.div>
+                    </motion.div>
+                  </StaggerItem>
+                );
+              })}
             </div>
           </StaggerContainer>
         </div>
@@ -1040,18 +1167,13 @@ export default function Pricing() {
       <section style={{ 
         padding: '8rem 0', 
         position: 'relative', 
-        overflow: 'hidden',
-        background: 'linear-gradient(135deg, var(--background-deep) 0%, #1a0a0a 50%, var(--background-deep) 100%)'
+        overflow: 'visible',
+        background: 'linear-gradient(135deg, var(--background-deep) 0%, #1a0a0a 50%, var(--background-deep) 100%)',
+        paddingTop: 'clamp(120px, 15vw, 180px)'
       }}>
+        <SectionDivider variant="wave" position="top" color="var(--background-charcoal)" />
         <ParticleField variant="light" />
         <AnimatedGradient />
-        <div style={{ 
-          position: 'absolute', 
-          inset: 0, 
-          background: 'radial-gradient(circle at center, rgba(239, 68, 68, 0.2) 0%, transparent 70%)', 
-          pointerEvents: 'none' 
-        }} />
-        
         <div className="container-custom" style={{ textAlign: 'center', position: 'relative', zIndex: 10 }}>
           <ScrollReveal direction="scale">
             <h2 className="heading-xl" style={{ 
