@@ -1178,7 +1178,7 @@ export default function Pricing() {
           <ScrollReveal direction="scale">
             <h2 className="heading-xl" style={{ 
               marginBottom: '2rem',
-              color: 'white',
+              color: 'var(--primary)',
               textShadow: '0 0 30px rgba(239, 68, 68, 0.5), 0 0 60px rgba(239, 68, 68, 0.3)',
               fontSize: 'clamp(2.5rem, 5vw, 4rem)'
             }}>
@@ -1235,13 +1235,14 @@ export default function Pricing() {
                 className="btn btn-lg hover-lift" 
                 style={{ 
                   borderColor: 'white', 
-                  color: 'white', 
-                  background: 'rgba(255, 255, 255, 0.1)', 
+                  color: 'red', 
+                  background: 'rgba(0,0,0,0.1)', 
                   backdropFilter: 'blur(10px)', 
                   padding: '1.25rem 3rem', 
                   fontSize: '1.125rem', 
                   fontWeight: 600,
-                  border: '2px solid white'
+                  border: '2px solid red',
+                  boxShadow: '0 8px 30px rgba(255,0,0,0.3)'
                 }}
               >
                 Start Your Project →

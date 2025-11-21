@@ -307,22 +307,6 @@ export function Footer() {
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
             >
-              <motion.div
-                style={{
-                  display: "inline-block",
-                  padding: "0.5rem 1rem",
-                  borderRadius: "8px",
-                  background: "rgba(239, 68, 68, 0.1)",
-                  border: "1px solid rgba(239, 68, 68, 0.2)",
-                  marginBottom: "1rem",
-                  fontSize: "0.85rem",
-                  fontWeight: 600,
-                  color: "var(--primary)",
-                }}
-                whileHover={{ scale: 1.05 }}
-              >
-                📬 Newsletter
-              </motion.div>
               <h3 className="heading-md" style={{ 
                 marginBottom: "1rem",
                 background: "linear-gradient(135deg, var(--foreground) 0%, var(--primary) 100%)",

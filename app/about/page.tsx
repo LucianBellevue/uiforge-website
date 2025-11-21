@@ -61,28 +61,6 @@ export default function About() {
 
         <div className="container-custom" style={{ position: 'relative', zIndex: 10 }}>
           <div style={{ textAlign: 'center', maxWidth: '900px', margin: '0 auto' }}>
-            {/* Badge */}
-            <motion.div
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '0.5rem',
-                padding: '0.75rem 1.5rem',
-                borderRadius: '50px',
-                background: 'rgba(239, 68, 68, 0.1)',
-                border: '1px solid rgba(239, 68, 68, 0.2)',
-                marginBottom: '2rem',
-              }}
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <span style={{ fontSize: '1.25rem' }}>✨</span>
-              <span className="body-sm" style={{ fontWeight: 600, color: 'var(--primary)' }}>
-                About UiForge
-              </span>
-            </motion.div>
-
             {/* Heading */}
             <motion.h1
               className="heading-xl"
@@ -579,22 +557,6 @@ export default function About() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <motion.div
-                style={{
-                  display: 'inline-block',
-                  padding: '0.5rem 1rem',
-                  borderRadius: '8px',
-                  background: 'rgba(239, 68, 68, 0.1)',
-                  border: '1px solid rgba(239, 68, 68, 0.2)',
-                  marginBottom: '1.5rem',
-                  fontSize: '0.85rem',
-                  fontWeight: 600,
-                  color: 'var(--primary)',
-                }}
-              >
-                🚀 Our Journey
-              </motion.div>
-              
               <h2 className="heading-lg" style={{ 
                 marginBottom: '2rem',
                 background: 'linear-gradient(135deg, var(--foreground) 0%, var(--primary) 100%)',
@@ -840,23 +802,6 @@ export default function About() {
             />
 
             <div style={{ position: 'relative', zIndex: 1 }}>
-              <motion.div
-                style={{
-                  display: 'inline-block',
-                  padding: '0.5rem 1rem',
-                  borderRadius: '8px',
-                  background: 'rgba(239, 68, 68, 0.15)',
-                  border: '1px solid rgba(239, 68, 68, 0.3)',
-                  marginBottom: '1.5rem',
-                  fontSize: '0.85rem',
-                  fontWeight: 600,
-                  color: 'var(--primary)',
-                }}
-                whileHover={{ scale: 1.05 }}
-              >
-                💼 Let&apos;s Collaborate
-              </motion.div>
-
               <h2 className="heading-lg" style={{ 
                 marginBottom: '1.5rem',
                 background: 'linear-gradient(135deg, #FFFFFF 0%, var(--primary) 50%, #FFFFFF 100%)',
