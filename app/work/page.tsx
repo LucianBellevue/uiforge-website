@@ -105,7 +105,7 @@ function MouseGlowGrid({
       style={{
         position: "relative",
         display: "grid",
-        gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+        gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 280px), 1fr))",
         gap: "2rem",
         maxWidth: "1200px",
         margin: "0 auto",
@@ -502,7 +502,7 @@ export default function Work() {
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(380px, 1fr))",
+              gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 380px), 1fr))",
               gap: "2.5rem",
             }}
           >

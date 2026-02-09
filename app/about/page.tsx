@@ -192,7 +192,7 @@ export default function About() {
           {/* Values Grid - Enhanced 2x2 Layout */}
           <div style={{ 
             display: 'grid', 
-            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 450px), 1fr))', 
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 340px), 1fr))', 
             gap: '2rem',
             maxWidth: '1400px',
             margin: '0 auto'
@@ -549,7 +549,7 @@ export default function About() {
         <ParticleField variant="light" />
         
         <div className="container-custom" style={{ position: 'relative', zIndex: 10 }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 500px), 1fr))', gap: '5rem', alignItems: 'center' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))', gap: '5rem', alignItems: 'center' }}>
             {/* Story Content */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -586,7 +586,7 @@ export default function About() {
 
             {/* Stats Cards */}
             <motion.div
-              style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1.5rem' }}
+              style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 200px), 1fr))', gap: '1.5rem' }}
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}

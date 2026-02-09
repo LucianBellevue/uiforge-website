@@ -44,7 +44,7 @@ export default function Contact() {
       {/* Contact Form & Info */}
       <section className="section-padding" style={{ background: 'var(--background-charcoal)' }}>
         <div className="container-custom">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '4rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 400px), 1fr))', gap: '4rem' }}>
             
             {/* Contact Form */}
             <div>

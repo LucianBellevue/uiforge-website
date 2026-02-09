@@ -188,7 +188,7 @@ export default function Pricing() {
           </ScrollReveal>
 
           <StaggerContainer staggerDelay={0.2}>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: '2.5rem', maxWidth: '1300px', margin: '0 auto' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 360px), 1fr))', gap: '2.5rem', maxWidth: '1300px', margin: '0 auto' }}>
               {pricingTiers.map((tier) => (
                 <StaggerItem key={tier.name}>
                   <motion.div 
@@ -389,7 +389,7 @@ export default function Pricing() {
           </ScrollReveal>
 
           <StaggerContainer staggerDelay={0.15}>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2.5rem', maxWidth: '1200px', margin: '0 auto' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))', gap: '2.5rem', maxWidth: '1200px', margin: '0 auto' }}>
               {[
                 {
                   name: 'Basic Care',
@@ -660,9 +660,10 @@ export default function Pricing() {
                         justifyContent: 'space-between',
                         position: 'relative',
                         overflow: 'hidden',
+                        flexWrap: 'wrap',
                       }}
                     >
-                      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
+                      <div className="word-break-normal" style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem', minWidth: 0, flex: '1 1 200px' }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
                           <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'var(--primary)', boxShadow: '0 0 12px rgba(239,68,68,0.9)' }} />
                           <p className="body-lg" style={{ margin: 0, color: 'var(--foreground)', fontWeight: 600 }}>
@@ -771,9 +772,9 @@ export default function Pricing() {
 
           {/* Chart Hero */}
           <ScrollReveal direction="up" delay={0.1}>
-            <div className="glass" style={{ 
+            <div className="glass word-break-normal" style={{ 
               borderRadius: '1.75rem', 
-              padding: '2.5rem', 
+              padding: 'clamp(1.25rem, 3vw, 2.5rem)', 
               overflowX: 'auto',
               maxWidth: '1150px',
               margin: '0 auto 2rem',
@@ -798,15 +799,15 @@ export default function Pricing() {
               }}>
                 <thead>
                   <tr style={{ borderBottom: '2px solid rgba(239, 68, 68, 0.2)' }}>
-                    <th className="body-md" style={{ 
+                    <th className="body-md table-cell-wrap" style={{ 
                       textAlign: 'left', 
-                      padding: '1.25rem 1rem', 
+                      padding: '1rem clamp(0.75rem, 2vw, 1.25rem)', 
                       color: 'var(--foreground)',
                       fontWeight: 600
                     }}>
                       Feature
                     </th>
-                    <th className="heading-sm" style={{ 
+                    <th className="heading-sm table-cell-wrap" style={{ 
                       textAlign: 'center', 
                       padding: '1.25rem 1rem', 
                       color: 'var(--primary)',
@@ -898,15 +899,15 @@ export default function Pricing() {
                       borderBottom: index < 6 ? '1px solid rgba(255, 255, 255, 0.05)' : 'none',
                       transition: 'background 0.2s'
                     }}>
-                      <td className="body-md" style={{ 
-                        padding: '1.25rem 1rem', 
+                      <td className="body-md table-cell-wrap" style={{ 
+                        padding: '1rem clamp(0.75rem, 2vw, 1.25rem)', 
                         fontWeight: 600,
                         color: 'var(--foreground)'
                       }}>
                         {row.feature}
                       </td>
-                      <td className="body-sm" style={{ 
-                        padding: '1.25rem 1rem', 
+                      <td className="body-sm table-cell-wrap" style={{ 
+                        padding: '1rem clamp(0.75rem, 2vw, 1.25rem)', 
                         textAlign: 'center', 
                         color: 'var(--primary)',
                         fontWeight: 600,
@@ -915,24 +916,24 @@ export default function Pricing() {
                       }}>
                         {row.uiforge}
                       </td>
-                      <td className="body-sm" style={{ 
-                        padding: '1.25rem 1rem', 
+                      <td className="body-sm table-cell-wrap" style={{ 
+                        padding: '1rem clamp(0.75rem, 2vw, 1.25rem)', 
                         textAlign: 'center', 
                         color: 'var(--foreground-muted)',
                         fontSize: '0.9rem'
                       }}>
                         {row.wix}
                       </td>
-                      <td className="body-sm" style={{ 
-                        padding: '1.25rem 1rem', 
+                      <td className="body-sm table-cell-wrap" style={{ 
+                        padding: '1rem clamp(0.75rem, 2vw, 1.25rem)', 
                         textAlign: 'center', 
                         color: 'var(--foreground-muted)',
                         fontSize: '0.9rem'
                       }}>
                         {row.wordpress}
                       </td>
-                      <td className="body-sm" style={{ 
-                        padding: '1.25rem 1rem', 
+                      <td className="body-sm table-cell-wrap" style={{ 
+                        padding: '1rem clamp(0.75rem, 2vw, 1.25rem)', 
                         textAlign: 'center', 
                         color: 'var(--foreground-muted)',
                         fontSize: '0.9rem'
@@ -1123,7 +1124,7 @@ export default function Pricing() {
                                   className="body-md"
                                   style={{
                                     marginBottom:
-                                      i < faq.answer.split('\\n').length - 1 ? '0.35rem' : 0,
+                                      i < faq.answer.split('\n').length - 1 ? '0.35rem' : 0,
                                     display: 'flex',
                                     alignItems: 'center',
                                     gap: '0.5rem',
@@ -1235,14 +1236,14 @@ export default function Pricing() {
                 className="btn btn-lg hover-lift" 
                 style={{ 
                   borderColor: 'white', 
-                  color: 'red', 
+                  color: 'var(--primary)', 
                   background: 'rgba(0,0,0,0.1)', 
                   backdropFilter: 'blur(10px)', 
                   padding: '1.25rem 3rem', 
                   fontSize: '1.125rem', 
                   fontWeight: 600,
-                  border: '2px solid red',
-                  boxShadow: '0 8px 30px rgba(255,0,0,0.3)'
+                  border: '2px solid var(--primary)',
+                  boxShadow: '0 8px 30px rgba(239, 68, 68, 0.3)'
                 }}
               >
                 Start Your Project →

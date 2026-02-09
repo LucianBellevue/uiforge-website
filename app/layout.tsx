@@ -40,7 +40,7 @@ export default function RootLayout({
       >
         <ReduxProvider>
           <Header />
-          <main style={{ paddingTop: "80px" }}>
+          <main className="main-with-header">
             {children}
           </main>
           <Footer />

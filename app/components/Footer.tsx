@@ -106,7 +106,7 @@ export function Footer() {
       <div className="container-custom" style={{ position: "relative", zIndex: 1, paddingTop: "5rem", paddingBottom: "3rem" }}>
         {/* Main Footer Content */}
         <motion.div
-          style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "3rem", marginBottom: "5rem" }}
+          style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 220px), 1fr))", gap: "3rem", marginBottom: "5rem" }}
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -300,7 +300,7 @@ export function Footer() {
             }}
           />
           
-          <div style={{ position: "relative", zIndex: 1, display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "3rem", alignItems: "center" }}>
+          <div style={{ position: "relative", zIndex: 1, display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 300px), 1fr))", gap: "3rem", alignItems: "center" }}>
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -398,13 +398,15 @@ export function Footer() {
           transition={{ delay: 0.5 }}
         >
           <motion.p 
-            className="body-sm" 
+            className="body-sm word-break-normal" 
             style={{ 
               color: "var(--foreground-muted)", 
               fontSize: "0.9rem",
               display: "flex",
               alignItems: "center",
-              gap: "0.5rem"
+              gap: "0.5rem",
+              flexWrap: "wrap",
+              justifyContent: "center"
             }}
             whileHover={{ color: "var(--foreground)" }}
           >
@@ -422,13 +424,15 @@ export function Footer() {
           </motion.p>
           
           <motion.p 
-            className="body-sm" 
+            className="body-sm word-break-normal" 
             style={{ 
               color: "var(--foreground-muted)", 
               fontSize: "0.9rem",
               display: "flex",
               alignItems: "center",
-              gap: "0.5rem"
+              gap: "0.5rem",
+              flexWrap: "wrap",
+              justifyContent: "center"
             }}
           >
             <span>Built with</span>

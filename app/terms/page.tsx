@@ -16,7 +16,7 @@ export default function Terms() {
       {/* Content */}
       <section className="section-padding" style={{ background: 'var(--background-charcoal)' }}>
         <div className="container-custom">
-          <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+          <div className="word-break-normal" style={{ maxWidth: '800px', margin: '0 auto' }}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>
               
               <div>

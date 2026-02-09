@@ -81,11 +81,12 @@ export function Header() {
             </Link>
           </nav>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Button - 44px min touch target */}
           <button
-            className="md:hidden p-2 hover-lift"
+            className="md:hidden p-3 min-w-[44px] min-h-[44px] flex items-center justify-center hover-lift rounded-lg"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
+            type="button"
           >
             <div style={{ display: "flex", flexDirection: "column", gap: "4px", width: "24px" }}>
               <motion.span

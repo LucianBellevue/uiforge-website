@@ -241,15 +241,7 @@ export default function Home() {
         <AnimatedGradient />
         <div className="container-custom" style={{ position: 'relative', zIndex: 10 }}>
           <ParallaxText speed={0.5}>
-            <h2 className="heading-lg text-center" style={{ 
-              paddingBottom: '2rem',
-              marginBottom: '2rem',
-              background: 'linear-gradient(135deg, #000000 0%, var(--primary) 50%, #000000 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-              textShadow: '0 0 20px rgba(239, 68, 68, 0.3), 0 0 40px rgba(239, 68, 68, 0.15)'
-            }}>What We Forge</h2>
+            <h2 className="heading-lg text-center section-heading-gradient" style={{ paddingBottom: '2rem', marginBottom: '2rem' }}>What We Forge</h2>
           </ParallaxText>
           <ScrollReveal direction="up" delay={0.1}>
             <p className="body-lg text-center" style={{ color: 'var(--foreground-muted)', marginBottom: '4rem', maxWidth: '600px', margin: '0 auto 3rem' }}>
@@ -258,7 +250,7 @@ export default function Home() {
           </ScrollReveal>
           
           <StaggerContainer staggerDelay={0.15}>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))', gap: '2rem' }}>
               {services.map((service) => (
                 <StaggerItem key={service.title}>
                   <GlassCard 
@@ -299,33 +291,25 @@ export default function Home() {
         <ParticleField />
         <div className="container-custom" style={{ position: 'relative', zIndex: 10 }}>
           <ScrollReveal direction="up">
-            <h2 className="heading-lg text-center" style={{ 
-              paddingBottom: '2rem',
-              marginBottom: '2rem',
-              background: 'linear-gradient(135deg, #000000 0%, var(--primary) 50%, #000000 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-              textShadow: '0 0 20px rgba(239, 68, 68, 0.3), 0 0 40px rgba(239, 68, 68, 0.15)'
-            }}>Why Choose UiForge</h2>
+<h2 className="heading-lg text-center section-heading-gradient" style={{ paddingBottom: '2rem', marginBottom: '2rem' }}>Why Choose UiForge</h2>
             
           </ScrollReveal>
           <ScrollReveal direction="up" delay={0.2}>
-            <div className="glass rounded-2xl" style={{ padding: '2.5rem', overflowX: 'auto' }}>
-              <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+            <div className="glass rounded-2xl word-break-normal" style={{ padding: '1.25rem clamp(1rem, 3vw, 2.5rem)', overflowX: 'auto' }}>
+              <table style={{ width: '100%', borderCollapse: 'collapse', minWidth: '320px' }}>
                 <thead>
                   <tr style={{ borderBottom: '2px solid rgba(239, 68, 68, 0.3)' }}>
-                    <th className="body-md" style={{ textAlign: 'left', padding: '1.25rem', color: 'var(--foreground)' }}></th>
-                    <th className="heading-sm" style={{ textAlign: 'center', padding: '1.25rem', color: 'var(--primary)' }}>UiForge.io</th>
-                    <th className="body-md" style={{ textAlign: 'center', padding: '1.25rem', color: 'var(--foreground-muted)' }}>Wix / Shopify / WordPress</th>
+                    <th className="body-md table-cell-wrap" style={{ textAlign: 'left', padding: '1rem clamp(0.75rem, 2vw, 1.25rem)', color: 'var(--foreground)' }}></th>
+                    <th className="heading-sm table-cell-wrap" style={{ textAlign: 'center', padding: '1rem clamp(0.75rem, 2vw, 1.25rem)', color: 'var(--primary)' }}>UiForge.io</th>
+                    <th className="body-md table-cell-wrap" style={{ textAlign: 'center', padding: '1rem clamp(0.75rem, 2vw, 1.25rem)', color: 'var(--foreground-muted)' }}>Wix / Shopify / WordPress</th>
                   </tr>
                 </thead>
                 <tbody>
                   {comparisonData.map((row, index) => (
                     <tr key={row.feature} style={{ borderBottom: index < comparisonData.length - 1 ? '1px solid rgba(255, 255, 255, 0.05)' : 'none' }}>
-                      <td className="body-md" style={{ padding: '1.25rem', fontWeight: 600 }}>{row.feature}</td>
-                      <td className="body-sm" style={{ padding: '1.25rem', textAlign: 'center', color: 'var(--primary)' }}>{row.uiforge}</td>
-                      <td className="body-sm" style={{ padding: '1.25rem', textAlign: 'center', color: 'var(--foreground-muted)' }}>{row.competitors}</td>
+                      <td className="body-md table-cell-wrap" style={{ padding: '1rem clamp(0.75rem, 2vw, 1.25rem)', fontWeight: 600 }}>{row.feature}</td>
+                      <td className="body-sm table-cell-wrap" style={{ padding: '1rem clamp(0.75rem, 2vw, 1.25rem)', textAlign: 'center', color: 'var(--primary)' }}>{row.uiforge}</td>
+                      <td className="body-sm table-cell-wrap" style={{ padding: '1rem clamp(0.75rem, 2vw, 1.25rem)', textAlign: 'center', color: 'var(--foreground-muted)' }}>{row.competitors}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -347,14 +331,7 @@ export default function Home() {
         <AnimatedGradient />
         <div className="container-custom" style={{ position: 'relative', zIndex: 10 }}>
           <ScrollReveal direction="up">
-            <h2 className="heading-lg text-center" style={{ 
-              marginBottom: '1.5rem',
-              background: 'linear-gradient(135deg, #000000 0%, var(--primary) 50%, #000000 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-              textShadow: '0 0 20px rgba(239, 68, 68, 0.3), 0 0 40px rgba(239, 68, 68, 0.15)'
-            }}>Our Process</h2>
+            <h2 className="heading-lg text-center section-heading-gradient" style={{ marginBottom: '1.5rem' }}>Our Process</h2>
             <p className="body-lg text-center" style={{ color: 'var(--foreground-muted)', maxWidth: '600px', margin: '0 auto 4rem' }}>
               From discovery to delivery, we follow a proven process to bring your vision to life.
             </p>
@@ -411,18 +388,10 @@ export default function Home() {
         </div>
         <div className="container-custom" style={{ position: 'relative', zIndex: 10 }}>
           <ScrollReveal direction="up">
-            <h2 className="heading-lg text-center" style={{ 
-              paddingBottom: '2rem',
-              marginBottom: '4rem',
-              background: 'linear-gradient(135deg, #000000 0%, var(--primary) 50%, #000000 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-              textShadow: '0 0 20px rgba(239, 68, 68, 0.3), 0 0 40px rgba(239, 68, 68, 0.15)'
-            }}>What Our Clients Say</h2>
+            <h2 className="heading-lg text-center section-heading-gradient" style={{ paddingBottom: '2rem', marginBottom: '4rem' }}>What Our Clients Say</h2>
           </ScrollReveal>
           <StaggerContainer staggerDelay={0.15}>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '2.5rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 340px), 1fr))', gap: '2.5rem' }}>
               {testimonials.map((testimonial, index) => (
                 <StaggerItem key={index}>
                   <GlassCard variant="default" hover={true} animate={true} style={{ 

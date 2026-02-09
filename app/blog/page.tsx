@@ -19,7 +19,7 @@ export default function Blog() {
       <section className="section-padding" style={{ background: 'var(--background-charcoal)' }}>
         <div className="container-custom">
           <div className="card-highlight" style={{ borderRadius: '1rem', padding: '3rem' }}>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '3rem', alignItems: 'center' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 350px), 1fr))', gap: '3rem', alignItems: 'center' }}>
               <div style={{ height: '300px', background: 'linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%)', borderRadius: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '4rem' }}>
                 ⚡
               </div>
@@ -52,7 +52,7 @@ export default function Blog() {
         <div className="container-custom">
           <h2 className="heading-lg" style={{ marginBottom: '3rem' }}>Latest Articles</h2>
           
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))', gap: '2rem' }}>
             
             {/* Post 1 */}
             <div className="card">
